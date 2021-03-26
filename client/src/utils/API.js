@@ -6,5 +6,4 @@ export default {
         return axios.get("/api/film");
     },
 
-
 };
