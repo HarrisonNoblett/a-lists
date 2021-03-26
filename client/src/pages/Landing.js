@@ -9,7 +9,9 @@ const Landing = () => {
 
                 </div>
                 <div className="col-md-6">
-                    <img src={logo} class="img-fluid" alt="Logo"></img>
+                    <img src={logo} class="img-fluid d-block" alt="Logo" ></img>
+                    <button type="button" className="btn btn-primary d-block mb-3">Sign up</button>
+                    <button type="button" className="btn btn-primary d-block">Log in</button>
                 </div>
             </div>
         </div>
