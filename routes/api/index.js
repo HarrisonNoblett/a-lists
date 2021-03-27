@@ -1,7 +1,7 @@
-//  Dependencies
-const path = require("path");
-const router = require("express").Router();
-const apiRoutes = require("./api");
+// const router = require("express").Router();
+// const filmRoutes = require("./film");
 
-// API Routes
-router.use("/api", apiRoutes);
+// // Film routes
+// router.use("/film", filmRoutes);
+
+// module.exports = router;
