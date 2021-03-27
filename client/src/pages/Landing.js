@@ -12,8 +12,8 @@ const Landing = () => {
                 <div className="col-md-5">
                     <img src={logo} className="img-fluid d-block" alt="Logo" ></img>
                     <h1 className="mb-3">Join A-Lists today.</h1>
-                    <button type="button" className="btn btn-primary d-block mb-3">Sign up</button>
-                    <button type="button" className="btn btn-primary d-block">Log in</button>
+                    <a href="/signup" className="btn btn-primary d-block mb-3">Sign up</a>
+                    <a href="/login" className="btn btn-primary d-block">Log in</a>
                 </div>
             </div>
         </div>
