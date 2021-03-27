@@ -4,7 +4,7 @@ import './App.css';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Signup from './pages/signup';
-import Dashboard from './pages/Dashbord';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
