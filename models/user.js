@@ -9,12 +9,14 @@ const userSchema = new mongoose.Schema({
     // url for thumbnail image
     email: {
         type: String,
-        default: ""
+        default: "",
+        required: true
     },
 
     password: {
         type: String,
         default: "",
+        required: true
     }
 
 });
