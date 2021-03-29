@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Signup from './pages/signup';
 import Dashboard from './pages/Dashboard';
 import Netflix from './pages/Netflix';
+import Hulu from './pages/Hulu';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
          <Route exact path='/signup' component={Signup} />
          <Route exact path='/dashboard' component={Dashboard} />
          <Route exact path='/netflix' component={Netflix} />
+         <Route exact path='/hulu' component={Hulu} />
        </Switch>
      </div>
    </Router>
