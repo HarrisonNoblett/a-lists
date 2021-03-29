@@ -9,6 +9,7 @@ import Netflix from './pages/Netflix';
 import Hulu from './pages/Hulu';
 import DisneyPlus from './pages/DisneyPlus';
 import HboMax from './pages/HboMax';
+import PrimeVideo from './pages/PrimeVideo';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
          <Route exact path='/hulu' component={Hulu} />
          <Route exact path='/disneyplus' component={DisneyPlus} />
          <Route exact path='/hbomax' component={HboMax} />
+         <Route exact path='/primevideo' component={PrimeVideo} />
        </Switch>
      </div>
    </Router>
