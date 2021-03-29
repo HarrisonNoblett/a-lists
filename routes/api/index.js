@@ -5,8 +5,9 @@ const BASEURL = "https://api.watchmode.com/v1/title/?";
 const APIKEY = "apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa";
 
 // Ombd
-const POSTERURL = ""
-cont APIKEY2 = ""
+const POSTERURL = "https://www.omdbapi.com/t=";
+cont APIKEY2 = "&apikey=b6e89a92";
+
 
 export default {
     search: function (query) {
