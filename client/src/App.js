@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Netflix from './pages/Netflix';
 import Hulu from './pages/Hulu';
 import DisneyPlus from './pages/DisneyPlus';
+import HboMax from './pages/HboMax';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
          <Route exact path='/netflix' component={Netflix} />
          <Route exact path='/hulu' component={Hulu} />
          <Route exact path='/disneyplus' component={DisneyPlus} />
+         <Route exact path='/hbomax' component={HboMax} />
        </Switch>
      </div>
    </Router>
