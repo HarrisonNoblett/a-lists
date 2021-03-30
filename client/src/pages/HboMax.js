@@ -22,9 +22,9 @@ const HBOMax = () => {
 
     return (
         <div>
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4 text-center">HBO Max</h1>
+            <div className="jumbotron jumbotron-fluid">
+                <div className="container">
+                    <h1 className="display-4 text-center">HBO Max</h1>
                 </div>
             </div>
             <form>
@@ -33,19 +33,19 @@ const HBOMax = () => {
             <div>
 
             </div>
-            < div class="jumbotron jumbotron-fluid">
-                <div class="container m-0">
-                    <p class="lead">Top Movies & Shows</p>
-                    <button type="button" class="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" class="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+            < div className="jumbotron jumbotron-fluid">
+                <div className="container m-0">
+                    <p className="lead">Top HBO Max Movies & Shows</p>
+                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
                 </div>
             </div>
         </div >

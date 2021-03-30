@@ -9,11 +9,12 @@ const APIKEY = "apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa";
 
 // Ombd
 const POSTERURL = "https://www.omdbapi.com/t=";
-// cont APIKEY2 = "&apikey=b6e89a92";
+const OBMDKEY = "&apikey=b6e89a92";
 
 router.get("/api/films/:film", function (req, res) {
     let film = req.params.movie;
-    BASEURL + film + APIKEY;
+    console.log(film)
+    res.send(BASEURL + film + APIKEY);
 })
 
 
