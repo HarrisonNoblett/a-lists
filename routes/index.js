@@ -13,6 +13,7 @@ const POSTERURL = "https://www.omdbapi.com/t=";
 
 router.get("/api/films/:film", function (req, res) {
     let film = req.params.movie;
+    BASEURL + film + APIKEY;
 })
 
 
@@ -40,4 +41,4 @@ network 248, 2554 = netflix
 
 TO GET POSTER URL [TV SHOW] --------------------
 https://api.watchmode.com/v1/title/345534/seasons?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=Game%20of%20Thrones
-"poster_url"
+"poster_url"*/
