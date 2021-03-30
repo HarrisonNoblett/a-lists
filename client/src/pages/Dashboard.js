@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import logo from "../img/logo.png"
 import Netflix from "../img/Netflix.png"
 import Hulu from "../img/Hulu.png"
@@ -60,7 +60,7 @@ function Dashboard() {
                 <div className="row">
                     <div className="row">
                         <div className="col-md-4">
-                            <Link to="/hbomax" rel="norferrer"><button type="button" class="btn m-5 btn-lg rounded shadow-lg"><img src={Netflix} alt="Netflix" width="250" height="150" /></button></Link>
+                            <Link to="/netflix" rel="norferrer"><button type="button" class="btn m-5 btn-lg rounded shadow-lg"><img src={Netflix} alt="Netflix" width="250" height="150" /></button></Link>
                         </div>
                         <div className="col-md-4">
                             <button type="button" class="btn m-5 btn-lg rounded shadow-lg"><img src={Hulu} alt="Hulu" width="250" height="150" /></button>
@@ -71,7 +71,7 @@ function Dashboard() {
                     </div>
                     <div className="row">
                         <div className="col-md-4">
-                            <button type="button" class="btn m-5 btn-lg rounded shadow-lg"><img src={HBO} alt="HBO-Max" width="250" height="150" /></button>
+                            <Link to="/hbomax" rel="noreferrer"><button type="button" class="btn m-5 btn-lg rounded shadow-lg"><img src={HBO} alt="HBO-Max" width="250" height="150" /></button></Link>
                         </div>
                         <div className="col-md-4">
                             <button type="button" class="btn m-5 btn-lg rounded shadow-lg"><img src={Prime} alt="Amazon Prime Video" width="250" height="150" /></button>
