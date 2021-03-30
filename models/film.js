@@ -6,6 +6,7 @@ const filmSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    film_id: type: Number,
     // url for thumbnail image
     thumbnail: {
         type: String,

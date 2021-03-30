@@ -9,10 +9,21 @@ mongoose.connect(
 const filmSeed = [
     {
         title: "The Dead Zone",
+        film_id: 5,
         thumbnail: "Stephen King",
         streamService:
             "Netflix",
+        type: "Movie",
         date: new Date(Date.now())
+    }
+]
+
+const networkSeed = [
+    {
+        title: "",
+        type: "",
+        network: "",
+        poster_url: ""
     }
 ]
 
