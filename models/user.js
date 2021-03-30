@@ -1,26 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const filmSchema = new mongoose.Schema({
-    title: {
+const userSchema = new mongoose.Schema({
+    name: {
         type: String,
         required: true
     },
-    film_id: Number,
-    type: Number,
     // url for thumbnail image
-    thumbnail: {
-        type: String,
-        default: ""
-    },
-
-    streamService: {
+    email: {
         type: String,
         default: "",
+        required: true
+    },
+
+    password: {
+        type: String,
+        default: "",
+        required: true
     }
 
 });
 
-const Film = mongoose.model("Film", filmSchema);
+const User = mongoose.model("User", userSchema);
 
-module.exports = Film;
+module.exports = User;
