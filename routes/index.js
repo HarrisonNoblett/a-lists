@@ -3,13 +3,12 @@ const router = require("express").Router();
 const axios = require("axios");
 
 // Watchmode
-const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=";
-// const APISEARCH = "&search_field=name&search_value=";
-// const APIKEY = "apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa";
+const WKEY = process.env.REACT_APP_WMAPIKEY
+const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=" + WKEY + "&search_field=name&search_value=";
 
 // Ombd
-const POSTERURL = "https://www.omdbapi.com/t=";
-const OBMDKEY = "&apikey=b6e89a92";
+const OKEY = process.env.REACT_APP_OMBDKEY
+const POSTERURL = "http://omdbapi.com/?t=" + title + "&apikey=" + OKEY;
 
 router.get("/api/films/:film", function (req, res) {
     let film = req.params.film;
@@ -18,7 +17,7 @@ router.get("/api/films/:film", function (req, res) {
         .then(x => {
             console.log(x.data);
             const id = x.data.title_results[0].id
-            const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa";
+            const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=" + WKEY;
             axios.get(APISEARCH)
                 .then(y => {
                     console.log(y.data);
