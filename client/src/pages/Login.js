@@ -17,7 +17,7 @@ const Login = () => {
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"></input>
                     </div>
-                    <a href="/login" className="btn btn-primary d-block">Log in</a>
+                    <a href="/api/login" className="btn btn-primary d-block">Log in</a>
                 </div>
                 <div className="col-md-4">
 

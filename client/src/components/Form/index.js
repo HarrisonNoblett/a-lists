@@ -12,6 +12,6 @@ export function Input(props) {
 
 export function FormBtn(props) {
     return (
-        <a href="/api/signup" className="btn btn-primary d-block">{props.children}</a>
+        <a {...props} href="/api/signup" className="btn btn-primary d-block">{props.children}</a>
     );
 }
