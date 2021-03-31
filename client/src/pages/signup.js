@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../img/logo.png';
+import { Input, FormBtn } from "../components/Form";
 
 const Signup = () => {
+    // Setting component's initial state
+    const [formObject, setFormObject] = useState({})
+
+    // Handles updating component state when the user types into the input field
+    function handleInputChange(event) {
+        const { name, value } = event.target;
+        setFormObject({...formObject, [name]: value})
+    };
+
     return (
         <div className="container">
             <div className="row">
@@ -11,13 +21,26 @@ const Signup = () => {
                 <div className="col-md-4">
                     <img src={logo} className="img-fluid" alt="Logo"></img>
                     <h2 className="mb-3">Create your account</h2>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"></input>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"></input>
-                    </div>
-                    <a href="/login" className="btn btn-primary d-block">Sign up</a>
+                    <form>
+                        <Input
+                            onChange={handleInputChange}
+                            name="name"
+                            placeholder="Name"
+                        />
+                        <Input
+                            onChange={handleInputChange}
+                            name="email"
+                            placeholder="Email"
+                        />
+                        <Input
+                            onChange={handleInputChange}
+                            name="password"
+                            placeholder="Password"
+                        />
+                        <FormBtn>
+                            Sign up
+                        </FormBtn>
+                    </form>
                 </div>
                 <div className="col-md-4">
 
