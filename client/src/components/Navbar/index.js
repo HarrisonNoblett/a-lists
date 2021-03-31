@@ -1,4 +1,4 @@
-import react from "react"
+import React from "react"
 import login from "../../pages/Login"
 import signup from "../../pages/Signup"
 

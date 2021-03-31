@@ -26,7 +26,7 @@ const HBOMax = () => {
 
     // Loads all network shows/movies and sets the to network
     function loadNetwork() {
-        API.getNetwork()
+        API.getNetwork(network)
             .then((res) => setNetwork(res.data))
             .catch((err) => console.log(err));
     }
