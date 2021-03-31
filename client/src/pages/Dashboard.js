@@ -8,6 +8,9 @@ function Dashboard() {
     return (
         <div>
             <div>
+                <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
+            </div>
+            <div>
                 {Navbar}
                 {WatchList}
             </div>

@@ -4,7 +4,7 @@ import "../../pages/style.css"
 
 function WatchList() {
     return (
-        <div className="d-flex flex-column float-right favorites" script={{ width: 300 }}>
+        <div className="d-flex flex-column float-right favorites shadow-lg bg-light" style={{ width: 300 }}>
             <ul className="nav nav-pills nav-flush flex-column mb-auto text-center rounded shadow-lg" >
                 <div className="container-fluid text-center">
                     <a className="navbar-brand" href="#">
