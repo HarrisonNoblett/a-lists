@@ -22,6 +22,7 @@ router.get("/api/films/:film", function (req, res) {
             axios.get(APISEARCH)
                 .then(y => {
                     console.log(y.data);
+                    const network = y.data
                 })
             res.json(x.data);
         })
