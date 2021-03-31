@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-    // Gets all books
+    // Gets all movies
     getFilms: function (film) {
         return axios.get("/api/films/" + film);
     },

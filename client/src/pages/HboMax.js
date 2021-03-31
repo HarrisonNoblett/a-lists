@@ -16,7 +16,7 @@ const HBOMax = () => {
         event.preventDefault();
         API.getFilms(film)
             .then(data => {
-                console.log(data.data.items)
+                console.log(data)
             })
     }
 
@@ -30,7 +30,7 @@ const HBOMax = () => {
             <form>
                 <input clas="form-control" placeholder="Enter Film" onChange={handleInputChange} onSubmit={handleSubmit}></input><button onClick={handleSubmit}>Submit</button>
             </form>
-            <div>
+            <div className="resultsContainer">
 
             </div>
             < div className="jumbotron jumbotron-fluid">
