@@ -8,7 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Netflix from './pages/Netflix';
 import Hulu from './pages/Hulu';
 import DisneyPlus from './pages/DisneyPlus';
-import HBOMax from './pages/HBOMax';
+import HBOMax from './pages/HboMax';
 import PrimeVideo from './pages/PrimeVideo';
 import AppleTvPlus from './pages/AppleTvPlus';
 
