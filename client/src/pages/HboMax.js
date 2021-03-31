@@ -1,10 +1,14 @@
-import React from 'react';
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 
 const HBOMax = () => {
-
     const [film, setFilm] = useState("");
+    const [network, setNetwork] = useState("");
+
+    // Loads network and store them with setnetwork
+    useEffect(() => {
+        loadNetwork();
+    }, []);
 
     function handleInputChange(event) {
         event.preventDefault();
@@ -20,6 +24,13 @@ const HBOMax = () => {
             })
     }
 
+    // Loads all network shows/movies and sets the to network
+    function loadNetwork() {
+        API.getNetwork()
+            .then((res) => setNetwork(res.data))
+            .catch((err) => console.log(err));
+    }
+
     return (
         <div>
             <div className="jumbotron jumbotron-fluid">
@@ -31,25 +42,63 @@ const HBOMax = () => {
                 <input clas="form-control" placeholder="Enter Film" onChange={handleInputChange} onSubmit={handleSubmit}></input><button onClick={handleSubmit}>Submit</button>
             </form>
             <div className="resultsContainer">
-
             </div>
-            < div className="jumbotron jumbotron-fluid">
+            <div className="jumbotron jumbotron-fluid">
                 <div className="container m-0">
                     <p className="lead">Top HBO Max Movies & Shows</p>
-                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
-                    <button type="button" className="btn mr-1 mt-1 btn-sm rounded shadow-lg"><img src="https://via.placeholder.com/250x140" alt="Show" /></button>
+                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                        {network.length}
+                    </button>
+                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
+                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
+                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
+                    <button
+                        type="button"
+                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
+                    >
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
+                    <button
+                        type="button"
+                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
+                    >
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
+                    <button
+                        type="button"
+                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
+                    >
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
+                    <button
+                        type="button"
+                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
+                    >
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
+                    <button
+                        type="button"
+                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
+                    >
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
+                    <button
+                        type="button"
+                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
+                    >
+                        <img src="https://via.placeholder.com/250x140" alt="Show" />
+                    </button>
                 </div>
             </div>
-        </div >
+        </div>
     );
-}
+};
 
 export default HBOMax;
