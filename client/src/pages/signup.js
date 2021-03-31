@@ -12,6 +12,13 @@ const Signup = () => {
         setFormObject({...formObject, [name]: value})
     };
 
+    // When the form is submitted, make API call to save the new user
+    function handleFormSubmit() {
+        if (formObject.name && formObject.email && formObject.password) {
+
+        }
+    };
+
     return (
         <div className="container">
             <div className="row">
@@ -37,7 +44,10 @@ const Signup = () => {
                             name="password"
                             placeholder="Password"
                         />
-                        <FormBtn>
+                        <FormBtn
+                            disabled={!(formObject.name && formObject.email && formObject.password)}
+                            onClick={handleFormSubmit}
+                        >
                             Sign up
                         </FormBtn>
                     </form>
