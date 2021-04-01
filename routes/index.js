@@ -23,8 +23,9 @@ router.get("/api/films/:film", function (req, res) {
                 .then(y => {
                     console.log(y.data);
                     const network = y.data
+                    res.json(y.data);
                 })
-            res.json(x.data);
+            // res.json(x.data);
         })
 
 
