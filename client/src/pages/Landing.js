@@ -5,6 +5,9 @@ import movie from '../img/movie.jpg';
 const Landing = () => {
     return (
         <div className="container">
+            <div>
+                <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
+            </div>
             <div className="row">
                 <div className="col-md-7">
                     <img src={movie} className="img-fluid" alt="Movie" style={{ height: '100%'}}></img>
