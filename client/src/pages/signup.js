@@ -21,6 +21,9 @@ const Signup = () => {
 
     return (
         <div className="container">
+            <div>
+                <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
+            </div>
             <div className="row">
                 <div className="col-md-4">
 
