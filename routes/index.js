@@ -1,7 +1,7 @@
 const path = require("path");
 const router = require("express").Router();
 const axios = require("axios");
-// const db = require("../models");
+const apiRoutes = require("./api");
 
 // Watchmode
 const WKEY = process.env.REACT_APP_WMAPIKEY;
@@ -22,19 +22,12 @@ router.get("/api/films/:film", function (req, res) {
             axios.get(APISEARCH)
                 .then(y => {
                     console.log(y.data);
-                    // const network = y.data
                     res.json(y.data);
                 })
-            // res.json(x.data);
         })
-
 })
 
-// router.get("api/networks/:network", function (req, res) {
-//     db.Network.findAll(req.params.network)
-//         .then(dbModel => res.json(dbModel))
-//         .catch(err => res.status(422).json(err));
-// })
+router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {
