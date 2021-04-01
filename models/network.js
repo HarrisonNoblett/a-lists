@@ -15,7 +15,7 @@ const networkSchema = new Schema({
     network: {
         type: String,
         required: true
-    }, 
+    },
     poster_url: {
         type: String,
         required: true

@@ -14,6 +14,48 @@ const filmSeed = [
   },
 ];
 
+const watchlistSeed = [
+  {
+    title: "Game of Thrones",
+    network: "HBO Max"
+  },
+  {
+    title: "Zack Snyder's Justice League: Justice Is Gray",
+    network: "HBO Max",
+  },
+  {
+    title: "Perry Mason",
+    network: "HBO Max",
+  },
+  {
+    title: "Irresistible",
+    network: "HBO Max",
+  },
+  {
+    title: "Raised by Wolves",
+    network: "HBO Max",
+  },
+  {
+    title: "Underwater",
+    network: "HBO Max",
+  },
+  {
+    title: "Sharp Objects",
+    network: "HBO Max",
+  },
+  {
+    title: "Godzilla: King of the Monsters",
+    network: "HBO Max",
+  },
+  {
+    title: "The Flight Attendant",
+    network: "HBO Max",
+  },
+  {
+    title: "The Witches",
+    network: "HBO Max",
+  },
+];
 
 const networkSeed = [
   {
@@ -21,14 +63,14 @@ const networkSeed = [
     type: "Show",
     network: "HBOMax",
     poster_url:
-      "https://hbomax-images.warnermediacdn.com/images/GVU2cggagzYNJjhsJATwo/tileburnedin?size=640x360&format=jpeg&partner=hbomaxcom&productCode=hbomax&host=artist.api.cdn.hbo.com&w=640",
+      "https://images2.minutemediacdn.com/image/fetch/c_fill,g_auto,f_auto,h_2731,w_1889/https%3A%2F%2Fwinteriscoming.net%2Ffiles%2F2019%2F04%2FGOT-Aftermath.jpeg",
   },
   {
     title: "Zack Snyder's Justice League: Justice Is Gray",
     type: "Movie",
     network: "HBOMax",
     poster_url:
-      "https://static.wikia.nocookie.net/dccu/images/f/fd/ZSJL_poster_-_League_together.png/revision/latest?cb=20210302174150",
+      "https://m.media-amazon.com/images/M/MV5BYjI3NDg0ZTEtMDEwYS00YWMyLThjYjktMTNlM2NmYjc1OGRiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SY450_CR2,0,300,450_AL_.jpg",
   },
   {
     title: "Perry Mason",
@@ -84,7 +126,7 @@ const networkSeed = [
     type: "Movie",
     network: "HBOMax",
     poster_url:
-      "https://deadline.com/wp-content/uploads/2020/10/witches-1-e1601613994504.jpg",
+      "https://m.media-amazon.com/images/M/MV5BNjRkYjlhMjEtYzIwOC00ZWYzLTgyMmQtYjI5M2UzNDJkNTU2XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
 ];
 
@@ -103,6 +145,17 @@ db.Film.remove({})
 // Inserting Network Seed
 db.Network.remove({})
   .then(() => db.Network.collection.insertMany(networkSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+db.WatchList.remove({})
+  .then(() => db.WatchList.collection.insertMany(watchlistSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
