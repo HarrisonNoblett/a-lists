@@ -1,6 +1,5 @@
 import React from "react"
-import login from "../../pages/Login"
-import signup from "../../pages/Signup"
+import LogoutButton from "../LogoutButton";
 
 function Navbar() {
     return (
@@ -10,10 +9,10 @@ function Navbar() {
                     <a class="nav-link active" aria-current="page">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href={login}>Login</a>
+                    <LogoutButton />
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href={signup}>Signup</a>
+                    
                 </li>
             </ul>
         </div>

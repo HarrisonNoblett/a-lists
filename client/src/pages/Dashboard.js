@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar"
 import WatchList from "../components/WatchList"
 import Networks from "../components/Networks"
 import "./style.css";
+import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 function Dashboard() {
     // const [watchList, setWatchList] = useState([])
@@ -20,6 +21,7 @@ function Dashboard() {
     // }
 
     return (
+        
         <div>
             <div>
                 <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
@@ -34,7 +36,9 @@ function Dashboard() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Dashboard;
+export default withAuthenticationRequired(Dashboard, {
+    onRedirecting: () => <div>Loading...</div>
+});
