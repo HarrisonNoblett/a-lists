@@ -14,6 +14,50 @@ const filmSeed = [
   },
 ];
 
+const watchlistSeed = [
+  {
+    title: "Game of Thrones",
+    network: "HBO Max",
+  },
+  {
+    title: "Zack Snyder's Justice League: Justice Is Gray",
+    network: "HBO Max",
+  },
+  {
+    title: "Perry Mason",
+    network: "HBO Max",
+  },
+  {
+    title: "Irresistible",
+    network: "HBO Max",
+  },
+  {
+    title: "Raised by Wolves",
+    network: "HBO Max",
+  },
+  {
+    title: "Underwater",
+    network: "HBO Max",
+  },
+  {
+    title: "Sharp Objects",
+    network: "HBO Max",
+  },
+  {
+    title: "Godzilla: King of the Monsters",
+    network: "HBO Max",
+  },
+  {
+    title: "The Flight Attendant",
+    network: "HBO Max",
+  },
+  {
+    title: "The Witches",
+    network: "HBO Max",
+  },
+];
+
+
 
 const networkSeed = [
   {
@@ -103,6 +147,17 @@ db.Film.remove({})
 // Inserting Network Seed
 db.Network.remove({})
   .then(() => db.Network.collection.insertMany(networkSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+db.WatchList.remove({})
+  .then(() => db.WatchList.collection.insertMany(watchlistSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

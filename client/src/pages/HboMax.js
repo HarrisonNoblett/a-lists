@@ -49,10 +49,11 @@ const HBOMax = () => {
                 <div className="container">
                     <h1 className="display-4 text-center">HBO Max</h1>
                 </div>
+                <form>
+                    <input className="form-control" placeholder="Enter Movies and Shows to add to your Watch List" onChange={handleInputChange} onSubmit={handleSubmit}></input><button onClick={handleSubmit}>Submit</button>
+                </form>
             </div>
-            <form>
-                <input clas="form-control" placeholder="Enter Film" onChange={handleInputChange} onSubmit={handleSubmit}></input><button onClick={handleSubmit}>Submit</button>
-            </form>
+
             <div className="resultsContainer">
                 <h3>{info.title}</h3>
                 <h4>{info.type}</h4>
