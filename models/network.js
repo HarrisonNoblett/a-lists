@@ -9,6 +9,7 @@ const networkSchema = new Schema({
         required: true
     },
     type: {
+<<<<<<< HEAD
         type: String,
         required: true
     },
@@ -16,10 +17,23 @@ const networkSchema = new Schema({
         type: String,
         required: true
     }, 
+=======
+        type: String,
+        required: true
+    },
+    network: {
+        type: String,
+        required: true
+    },
+>>>>>>> main
     poster_url: {
         type: String,
         required: true
     },
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 });
 
 // Passing networkSchema instance to mongoose.model

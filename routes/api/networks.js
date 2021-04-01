@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const netwroksController = require("../../controllers/networksController")
+const networkController = require("../../controllers/networkController");
 
-// Matches with "/api/networks/:service"
-router.route("/:service").get(netwroksController.find)
+// Matches with "/api/networks"
+router.route("/:service")
+    .get(networkController.find)
+
 
 module.exports = router;

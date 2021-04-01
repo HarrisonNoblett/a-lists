@@ -3,6 +3,9 @@ import React from 'react';
 const Hulu = () => {
     return (
         <div>
+            <div>
+                <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
+            </div>
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                     <h1 class="display-4 text-center">Hulu</h1>
