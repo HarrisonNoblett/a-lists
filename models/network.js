@@ -20,7 +20,6 @@ const networkSchema = new Schema({
         type: String,
         required: true
     },
-
 });
 
 // Passing networkSchema instance to mongoose.model

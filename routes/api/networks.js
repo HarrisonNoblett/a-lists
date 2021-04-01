@@ -1,4 +1,5 @@
 const router = require("express").Router();
+
 const networkController = require("../../controllers/networkController");
 
 // Matches with "/api/networks"
