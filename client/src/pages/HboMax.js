@@ -22,6 +22,9 @@ const HBOMax = () => {
 
     return (
         <div>
+            <div>
+                <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
+            </div>
             <div className="jumbotron jumbotron-fluid">
                 <div className="container">
                     <h1 className="display-4 text-center">HBO Max</h1>
