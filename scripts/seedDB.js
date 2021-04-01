@@ -17,7 +17,7 @@ const filmSeed = [
 const watchlistSeed = [
   {
     title: "Game of Thrones",
-    network: "HBO Max",
+    network: "HBO Max"
   },
   {
     title: "Zack Snyder's Justice League: Justice Is Gray",
@@ -63,70 +63,70 @@ const networkSeed = [
   {
     title: "Game of Thrones",
     type: "Show",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://hbomax-images.warnermediacdn.com/images/GVU2cggagzYNJjhsJATwo/tileburnedin?size=640x360&format=jpeg&partner=hbomaxcom&productCode=hbomax&host=artist.api.cdn.hbo.com&w=640",
   },
   {
     title: "Zack Snyder's Justice League: Justice Is Gray",
     type: "Movie",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://static.wikia.nocookie.net/dccu/images/f/fd/ZSJL_poster_-_League_together.png/revision/latest?cb=20210302174150",
   },
   {
     title: "Perry Mason",
     type: "Show",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://m.media-amazon.com/images/M/MV5BMDllMWRjNWMtM2U3Ny00YjAwLTlhNTgtOThjZTc2YmI2ZmRmXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_.jpg",
   },
   {
     title: "Irresistible",
     type: "Movie",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://images-na.ssl-images-amazon.com/images/I/812rnBj4NIL._RI_.jpg",
   },
   {
     title: "Raised by Wolves",
     type: "Show",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://m.media-amazon.com/images/M/MV5BYWUzMGZjNjgtMzkwYS00MTdhLTlhYzItYTEzMjRjMjkzZmM3XkEyXkFqcGdeQXVyMTE5MzYzMDE5._V1_.jpg",
   },
   {
     title: "Underwater",
     type: "Movie",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://www.laughingplace.com/w/wp-content/uploads/2019/08/fox-debuts-first-trailer-poster-for-underwater.png",
   },
   {
     title: "Sharp Objects",
     type: "Show",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://images-na.ssl-images-amazon.com/images/I/710wiTEVcnL._AC_SL1177_.jpg",
   },
   {
     title: "Godzilla: King of the Monsters",
     type: "Movie",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://d1w8cc2yygc27j.cloudfront.net/6280170057362467821/122010278868919792.jpg",
   },
   {
     title: "The Flight Attendant",
     type: "Show",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://www.themoviedb.org/t/p/w500/8azUzeNTqdHlSjkc12A5s6fpS6P.jpg",
   },
   {
     title: "The Witches",
     type: "Movie",
-    network: "HBO Max",
+    network: "HBOMax",
     poster_url:
       "https://deadline.com/wp-content/uploads/2020/10/witches-1-e1601613994504.jpg",
   },

@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 
 const HBOMax = () => {
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
-    // const [network, setNetwork] = useState("");
+    const [network, setNetwork] = useState({});
 
     // Loads network and store them with setnetwork
-    // useEffect(() => {
-    //     loadNetwork();
-    // }, []);
+    useEffect(() => {
+        loadNetwork();
+    }, []);
+
+    function loadNetwork() {
+        API.getNetwork()
+            .then(res => setNetwork(res.data)
+            )
+            .catch(err => console.log(err));
+
+    }
 
     function handleInputChange(event) {
         event.preventDefault();
@@ -29,16 +37,8 @@ const HBOMax = () => {
                     rating: data.data.us_rating,
                     network: data.data.networks
                 });
-
             })
     }
-
-    // Loads all network shows/movies and sets the to network
-    // function loadNetwork() {
-    //     API.getNetwork(network)
-    //         .then((res) => setNetwork(res.data))
-    //         .catch((err) => console.log(err));
-    // }
 
     return (
         <div>
@@ -59,12 +59,22 @@ const HBOMax = () => {
                 <h4>{info.type}</h4>
                 <h5>{info.rating}</h5>
                 <p>{info.plot}</p>
-
-
             </div>
             <div className="jumbotron jumbotron-fluid">
                 <div className="container m-0">
                     <p className="lead">Top HBO Max Movies & Shows</p>
+                    {network.length ? (
+                        <ul>
+                            {network.map(network => (
+                                <li key={network._id}>
+                                    <img src={network.poster_url} alt="poster"></img>
+
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <h3>No Results to Display</h3>
+                    )}
                     <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
                         <img src="https://via.placeholder.com/250x140" alt="Show" />
                     </button>
