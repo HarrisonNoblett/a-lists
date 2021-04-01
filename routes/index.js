@@ -1,15 +1,15 @@
 const path = require("path");
 const router = require("express").Router();
 const axios = require("axios");
+// const db = require("../models");
 
 // Watchmode
+const WKEY = process.env.REACT_APP_WMAPIKEY;
 const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=";
-// const APISEARCH = "&search_field=name&search_value=";
-// const APIKEY = "apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa";
 
 // Ombd
-const POSTERURL = "https://www.omdbapi.com/t=";
-const OBMDKEY = "&apikey=b6e89a92";
+const OKEY = process.env.REACT_APP_OMBDKEY;
+const POSTERURL = "http://omdbapi.com/?t=&apikey=eb41033e";
 
 router.get("/api/films/:film", function (req, res) {
     let film = req.params.film;
@@ -22,13 +22,19 @@ router.get("/api/films/:film", function (req, res) {
             axios.get(APISEARCH)
                 .then(y => {
                     console.log(y.data);
-                    const network = y.data
+                    // const network = y.data
+                    res.json(y.data);
                 })
-            res.json(x.data);
+            // res.json(x.data);
         })
 
-
 })
+
+// router.get("api/networks/:network", function (req, res) {
+//     db.Network.findAll(req.params.network)
+//         .then(dbModel => res.json(dbModel))
+//         .catch(err => res.status(422).json(err));
+// })
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {
@@ -38,12 +44,12 @@ router.use(function (req, res) {
 module.exports = router;
 
 /* TO GET ID & TITLE: ---------------
-https://api.watchmode.com/v1/search/?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=Game%20of%20Thrones
+https://api.watchmode.com/v1/search/?apiKey= ---- &search_field=name&search_value=Game%20of%20Thrones
 (GAME OF THRONES ID = 345534)
 (Sleeping Beautry ID= 1350994)
 
 TO GET NETWORK & TITLE: -------------
-https://api.watchmode.com/v1/title/345534/details?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=Game%20of%20Thrones
+https://api.watchmode.com/v1/title/345534/details?apiKey= ---- &search_field=name&search_value=Game%20of%20Thrones
 network 1 = HBO;
 network 8 = Disney;
 network 1204, 2703, 2328 = Amazon;
@@ -52,5 +58,5 @@ network 431 = hulu;
 network 248, 2554 = netflix
 
 TO GET POSTER URL [TV SHOW] --------------------
-https://api.watchmode.com/v1/title/345534/seasons?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=Game%20of%20Thrones
+https://api.watchmode.com/v1/title/345534/seasons?apiKey= ---- &search_field=name&search_value=Game%20of%20Thrones
 "poster_url"*/

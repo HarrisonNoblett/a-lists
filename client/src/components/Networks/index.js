@@ -1,4 +1,4 @@
-import react from "react"
+import React from "react"
 import { Link } from "react-router-dom";
 import Netflix from "../../img/Netflix.png"
 import Hulu from "../../img/Hulu.png"

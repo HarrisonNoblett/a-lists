@@ -1,4 +1,4 @@
-// import react from "react"
+import React from "react"
 import logo from "../../img/logo.png"
 import "../../pages/style.css"
 
