@@ -3,7 +3,7 @@ import API from "../utils/API";
 
 const HBOMax = () => {
   // const [film, setFilm] = useState("");
-  const [network, setNetwork] = useState("");
+  const [network, setNetwork] = useState([]);
 
   // Loads network and store them with setnetwork
   useEffect(() => {
@@ -25,7 +25,7 @@ const HBOMax = () => {
 
   // Loads all network shows/movies and sets the to network
   function loadNetwork() {
-    API.getNetwork()
+    API.getNetwork("HBOMax")
       .then((res) => setNetwork(res.data))
       .catch((err) => console.log(err));
   }

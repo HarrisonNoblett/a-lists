@@ -1,6 +1,7 @@
+// Dependencies
 const path = require("path");
 const router = require("express").Router();
-
+const apiRoutes = require("./api")
 
 // Watchmode
 const BASEURL = "https://api.watchmode.com/v1/title/?";
@@ -17,14 +18,18 @@ router.get("/api/films/:film", function (req, res) {
     res.send(BASEURL + film + APIKEY);
 })
 
-
+// Routes
+router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
-router.use(function (req, res) {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// router.use(function (req, res) {
+//     res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 module.exports = router;
+
+
+
 
 /* TO GET ID & TITLE: ---------------
 https://api.watchmode.com/v1/search/?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=Game%20of%20Thrones
