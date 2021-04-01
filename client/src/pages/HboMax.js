@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 
 const HBOMax = () => {
+
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
     const [network, setNetwork] = useState([]);
+
 
     // Loads network and store them with setnetwork
     useEffect(() => {

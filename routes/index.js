@@ -1,3 +1,4 @@
+// Dependencies
 const path = require("path");
 const router = require("express").Router();
 const axios = require("axios");
@@ -27,6 +28,7 @@ router.get("/api/films/:film", function (req, res) {
         })
 })
 
+// Routes
 router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
@@ -35,6 +37,7 @@ router.use(function (req, res) {
 });
 
 module.exports = router;
+
 
 /* TO GET ID & TITLE: ---------------
 https://api.watchmode.com/v1/search/?apiKey= ---- &search_field=name&search_value=Game%20of%20Thrones
