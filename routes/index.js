@@ -1,6 +1,7 @@
 const path = require("path");
 const router = require("express").Router();
 const axios = require("axios");
+const apiRoutes = require("./api");
 
 // Watchmode
 const WKEY = process.env.REACT_APP_WMAPIKEY;
@@ -26,6 +27,7 @@ router.get("/api/films/:film", function (req, res) {
         })
 })
 
+router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {

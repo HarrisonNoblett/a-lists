@@ -4,7 +4,7 @@ import API from "../utils/API";
 const HBOMax = () => {
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
-    const [network, setNetwork] = useState({});
+    const [network, setNetwork] = useState([]);
 
     // Loads network and store them with setnetwork
     useEffect(() => {
@@ -12,11 +12,10 @@ const HBOMax = () => {
     }, []);
 
     function loadNetwork() {
-        API.getNetwork()
-            .then(res => setNetwork(res.data)
-            )
+        API.getNetwork("HBOMax")
+            .then(res =>
+                setNetwork(res.data))
             .catch(err => console.log(err));
-
     }
 
     function handleInputChange(event) {
@@ -41,7 +40,7 @@ const HBOMax = () => {
     }
 
     return (
-        <div>
+        <div className="container">
             <div>
                 <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
             </div>
@@ -49,8 +48,9 @@ const HBOMax = () => {
                 <div className="container">
                     <h1 className="display-4 text-center">HBO Max</h1>
                 </div>
-                <form>
-                    <input className="form-control" placeholder="Enter Movies and Shows to add to your Watch List" onChange={handleInputChange} onSubmit={handleSubmit}></input><button onClick={handleSubmit}>Submit</button>
+                <form className="input-group mb-3">
+
+                    <input type="text" className="form-control" placeholder="Enter Movies and Shows to add to your Watch List" aria-describedby="button-addon2" onChange={handleInputChange} onSubmit={handleSubmit}></input><button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handleSubmit}>Submit</button>
                 </form>
             </div>
 
@@ -61,68 +61,20 @@ const HBOMax = () => {
                 <p>{info.plot}</p>
             </div>
             <div className="jumbotron jumbotron-fluid">
-                <div className="container m-0">
+                <div className="container text-center">
                     <p className="lead">Top HBO Max Movies & Shows</p>
                     {network.length ? (
-                        <ul>
+                        <div>
                             {network.map(network => (
-                                <li key={network._id}>
-                                    <img src={network.poster_url} alt="poster"></img>
-
-                                </li>
+                                <button type="button" className="btn mr-1 btn-sm rounded shadow-lg topTen" key={network._id}>
+                                    <img className="topPosters" src={network.poster_url} alt="poster"></img>
+                                </button>
                             ))}
-                        </ul>
+                        </div>
                     ) : (
                         <h3>No Results to Display</h3>
                     )}
-                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg">
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button
-                        type="button"
-                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
-                    >
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button
-                        type="button"
-                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
-                    >
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button
-                        type="button"
-                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
-                    >
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button
-                        type="button"
-                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
-                    >
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button
-                        type="button"
-                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
-                    >
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
-                    <button
-                        type="button"
-                        className="btn mr-1 mt-1 btn-sm rounded shadow-lg"
-                    >
-                        <img src="https://via.placeholder.com/250x140" alt="Show" />
-                    </button>
+
                 </div>
             </div>
         </div>

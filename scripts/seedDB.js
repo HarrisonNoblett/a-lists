@@ -57,22 +57,20 @@ const watchlistSeed = [
   },
 ];
 
-
-
 const networkSeed = [
   {
     title: "Game of Thrones",
     type: "Show",
     network: "HBOMax",
     poster_url:
-      "https://hbomax-images.warnermediacdn.com/images/GVU2cggagzYNJjhsJATwo/tileburnedin?size=640x360&format=jpeg&partner=hbomaxcom&productCode=hbomax&host=artist.api.cdn.hbo.com&w=640",
+      "https://images2.minutemediacdn.com/image/fetch/c_fill,g_auto,f_auto,h_2731,w_1889/https%3A%2F%2Fwinteriscoming.net%2Ffiles%2F2019%2F04%2FGOT-Aftermath.jpeg",
   },
   {
     title: "Zack Snyder's Justice League: Justice Is Gray",
     type: "Movie",
     network: "HBOMax",
     poster_url:
-      "https://static.wikia.nocookie.net/dccu/images/f/fd/ZSJL_poster_-_League_together.png/revision/latest?cb=20210302174150",
+      "https://m.media-amazon.com/images/M/MV5BYjI3NDg0ZTEtMDEwYS00YWMyLThjYjktMTNlM2NmYjc1OGRiXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_SY450_CR2,0,300,450_AL_.jpg",
   },
   {
     title: "Perry Mason",
@@ -128,7 +126,7 @@ const networkSeed = [
     type: "Movie",
     network: "HBOMax",
     poster_url:
-      "https://deadline.com/wp-content/uploads/2020/10/witches-1-e1601613994504.jpg",
+      "https://m.media-amazon.com/images/M/MV5BNjRkYjlhMjEtYzIwOC00ZWYzLTgyMmQtYjI5M2UzNDJkNTU2XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
 ];
 
