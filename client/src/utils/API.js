@@ -7,6 +7,6 @@ export default {
     },
 
     getNetwork: function (network) {
-        return axios.get("/api/netwrok/" + network);
-    },
+        return axios.get("/api/network/" + network);
+    }
 };

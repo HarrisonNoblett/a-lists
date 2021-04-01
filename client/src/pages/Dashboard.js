@@ -6,9 +6,26 @@ import "./style.css";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 function Dashboard() {
+    // const [watchList, setWatchList] = useState([])
+
+    // useEffect(() => {
+    //     loadWatchList()
+    // }, [])
+
+    // function loadWatchList() {
+    //     API.getWatchList() 
+    //     .then(res => 
+    //       setWatchList(res.data)
+    //     )
+    //     .catch(err => console.log(err))
+    // }
+
     return (
         
         <div>
+            <div>
+                <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
+            </div>
             <div>
                 {Navbar}
                 {WatchList}

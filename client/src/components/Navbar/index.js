@@ -4,7 +4,7 @@ import LogoutButton from "../LogoutButton";
 function Navbar() {
     return (
         <div>
-            <ul class="nav nav-tabs p-2 shadow-lg">
+            <ul class="nav nav-tabs p-2 bg-light shadow-lg">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page">Dashboard</a>
                 </li>

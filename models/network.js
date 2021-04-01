@@ -6,16 +6,20 @@ const Schema = mongoose.Schema;
 const networkSchema = new Schema({
     title: {
         type: String,
-        required: ""
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    network: {
+        type: String,
+        required: true
     },
     poster_url: {
         type: String,
-        required: ""
+        required: true
     },
-    network_url: {
-        type: String,
-        required: ""
-    } 
 });
 
 // Passing networkSchema instance to mongoose.model
