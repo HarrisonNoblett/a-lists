@@ -1,8 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 import logo from "../../img/logo.png"
 import "../../pages/style.css"
+import API from "../../utils/API";
 
 function WatchList() {
+
+    const [list, setList] = useState([];
+
+    useEffect(() => {
+        loadList();
+    }, []);
+
+    // function loadList() => {
+    //     API.getList
+    // }
     return (
         <div className="d-flex flex-column float-right favorites shadow-lg bg-light" style={{ width: 250 }}>
             <ul className="nav nav-pills nav-flush flex-column mb-auto text-center rounded shadow-lg" >
