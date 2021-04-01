@@ -2,14 +2,9 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 
 const HBOMax = () => {
-<<<<<<< HEAD
-  // const [film, setFilm] = useState("");
-  const [network, setNetwork] = useState([]);
-=======
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
     const [network, setNetwork] = useState([]);
->>>>>>> main
 
     // Loads network and store them with setnetwork
     useEffect(() => {
@@ -29,14 +24,6 @@ const HBOMax = () => {
         setFilm(filmInput);
     }
 
-<<<<<<< HEAD
-  // Loads all network shows/movies and sets the to network
-  function loadNetwork() {
-    API.getNetwork("HBOMax")
-      .then((res) => setNetwork(res.data))
-      .catch((err) => console.log(err));
-  }
-=======
     function handleSubmit(event) {
         event.preventDefault();
         API.getFilms(film)
@@ -51,7 +38,6 @@ const HBOMax = () => {
                 });
             })
     }
->>>>>>> main
 
     return (
         <div className="container">
