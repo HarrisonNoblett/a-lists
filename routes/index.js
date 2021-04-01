@@ -1,15 +1,15 @@
 const path = require("path");
 const router = require("express").Router();
 const axios = require("axios");
-const db = require("../models");
+// const db = require("../models");
 
 // Watchmode
-const WKEY = process.env.REACT_APP_WMAPIKEY
-const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=" + WKEY + "&search_field=name&search_value=";
+const WKEY = process.env.REACT_APP_WMAPIKEY;
+const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=";
 
 // Ombd
-const OKEY = process.env.REACT_APP_OMBDKEY
-const POSTERURL = "http://omdbapi.com/?t=" + "&apikey=" + OKEY;
+const OKEY = process.env.REACT_APP_OMBDKEY;
+const POSTERURL = "http://omdbapi.com/?t=&apikey=eb41033e";
 
 router.get("/api/films/:film", function (req, res) {
     let film = req.params.film;
@@ -18,23 +18,23 @@ router.get("/api/films/:film", function (req, res) {
         .then(x => {
             console.log(x.data);
             const id = x.data.title_results[0].id
-            const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=" + WKEY;
+            const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa";
             axios.get(APISEARCH)
                 .then(y => {
                     console.log(y.data);
-                    const network = y.data
+                    // const network = y.data
+                    res.json(y.data);
                 })
-            res.json(x.data);
+            // res.json(x.data);
         })
 
-
 })
 
-router.get("api/networks/:network", function (req, res) {
-    db.Network.findAll(req.params.network)
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
-})
+// router.get("api/networks/:network", function (req, res) {
+//     db.Network.findAll(req.params.network)
+//         .then(dbModel => res.json(dbModel))
+//         .catch(err => res.status(422).json(err));
+// })
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {

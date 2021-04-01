@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Navbar from "../components/Navbar"
 import WatchList from "../components/WatchList"
 import Networks from "../components/Networks"
 import "./style.css";
 
 function Dashboard() {
-    const [watchList, setWatchList] = useState([])
+    // const [watchList, setWatchList] = useState([])
 
-    useEffect(() => {
-        loadWatchList()
-    }, [])
+    // useEffect(() => {
+    //     loadWatchList()
+    // }, [])
 
-    function loadWatchList() {
-        API.getWatchList() 
-        .then(res => 
-          setWatchList(res.data)
-        )
-        .catch(err => console.log(err))
-    }
+    // function loadWatchList() {
+    //     API.getWatchList() 
+    //     .then(res => 
+    //       setWatchList(res.data)
+    //     )
+    //     .catch(err => console.log(err))
+    // }
 
     return (
         <div>
