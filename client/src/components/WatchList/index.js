@@ -1,8 +1,19 @@
 import React from "react"
 import logo from "../../img/logo.png"
 import "../../pages/style.css"
+// import API from "../../utils/API";
 
 function WatchList() {
+
+    // const [list, setList] = useState([]);
+
+    // useEffect(() => {
+    //     loadList();
+    // }, []);
+
+    // function loadList() => {
+    //     API.getList
+    // }
     return (
         <div className="d-flex flex-column float-right favorites shadow-lg bg-light" style={{ width: 250 }}>
             <ul className="nav nav-pills nav-flush flex-column mb-auto text-center rounded shadow-lg" >
@@ -19,7 +30,7 @@ function WatchList() {
                 </li>
                 <li className="nav-item">
                     <div className="rounded shadow-lg 250px">
-                        <img id="movieImg" src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg" width="225" height="300" />
+                        <img id="movieImg" src="https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg" width="225" height="300" alt="lord of the rings poster" />
                     </div>
                 </li>
                 <br />
