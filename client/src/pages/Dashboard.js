@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 import API from "../utils/API";
 import ExtAPI from "../utils/ExtAPI";
 
@@ -69,7 +70,7 @@ const Dashboard = () => {
                     <div className="container">
                         <h1 className="display-4 text-center">A-Lists</h1>
                     </div>
-                    <form className="input-group mb-3">
+                    <form className="input-group mb-3 shadow-lg">
                         <input type="text" className="form-control" placeholder="Enter Movies and Shows to add to your Watch List" aria-describedby="button-addon2" onChange={handleInputChange} onSubmit={handleSubmit}></input><button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handleSubmit}>Submit</button>
                     </form>
                 </div>
@@ -99,6 +100,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
