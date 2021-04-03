@@ -7,6 +7,7 @@ const Dashboard = () => {
     const [watchlist, setWatchlist] = useState([]);
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
+    const [poster, setPoster] = useState([])
 
     // Loads network and store them with setnetwork
     useEffect(() => {
@@ -26,16 +27,6 @@ const Dashboard = () => {
         setFilm(filmInput);
     }
 
-    // .then((x) => {
-    //         console.log(x.data);
-    //         const id = x.data.title_results[0].id
-    //         const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=" + WKEY;
-    //         axios.get(APISEARCH)
-    //             .then((y) => {
-    //                 res.json(y.data)
-    //             })
-    //     })
-
     function handleSubmit(event) {
         event.preventDefault();
         ExtAPI.getTitles(film)
@@ -51,7 +42,10 @@ const Dashboard = () => {
                             network: data.data.networks
                         });
                     })
-
+                ExtAPI.getPoster(film)
+                    .then(data =>
+                        setPoster(data.data))
+                    .catch(err => console.log(err));
 
             })
 
@@ -73,6 +67,7 @@ const Dashboard = () => {
             </div>
 
             <div className="resultsContainer">
+                <img src={poster.Poster} alt="film poster"></img>
                 <h3>{info.title}</h3>
                 <h4>{info.type}</h4>
                 <h5>{info.rating}</h5>
