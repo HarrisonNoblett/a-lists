@@ -8,12 +8,14 @@ const Dashboard = () => {
     const [watchlist, setWatchlist] = useState([]);
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
+    const [poster, setPoster] = useState([])
 
     // Loads network and store them with setnetwork
     useEffect(() => {
         loadWatchlist();
     }, []);
 
+    // Loads users saved list
     function loadWatchlist() {
         API.getWatchlist()
             .then(res =>
@@ -21,22 +23,14 @@ const Dashboard = () => {
             .catch(err => console.log(err));
     }
 
+    // grabs the users search input
     function handleInputChange(event) {
         event.preventDefault();
         const filmInput = event.target.value;
         setFilm(filmInput);
     }
 
-    // .then((x) => {
-    //         console.log(x.data);
-    //         const id = x.data.title_results[0].id
-    //         const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=" + WKEY;
-    //         axios.get(APISEARCH)
-    //             .then((y) => {
-    //                 res.json(y.data)
-    //             })
-    //     })
-
+    // calls 3 apis to pull search 
     function handleSubmit(event) {
         event.preventDefault();
         ExtAPI.getTitles(film)
@@ -52,19 +46,17 @@ const Dashboard = () => {
                             network: data.data.networks
                         });
                     })
-
-
+                ExtAPI.getPoster(film)
+                    .then(data =>
+                        setPoster(data.data))
+                    .catch(err => console.log(err));
             })
-
     }
 
     return (
         <div>
             {Navbar}
             <div className="container">
-                <div>
-                    <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
-                </div>
                 <div className="jumbotron jumbotron-fluid">
                     <div className="container">
                         <h1 className="display-4 text-center">A-Lists</h1>
@@ -75,11 +67,13 @@ const Dashboard = () => {
                 </div>
 
                 <div className="resultsContainer">
+                    <img src={poster.Poster} alt="film poster"></img>
                     <h3>{info.title}</h3>
                     <h4>{info.type}</h4>
                     <h5>{info.rating}</h5>
                     <p>{info.plot}</p>
                 </div>
+
                 <div className="jumbotron jumbotron-fluid">
                     <div className="container text-center">
                         <h2 className="lead">HBO Max WatchList</h2>
@@ -95,9 +89,9 @@ const Dashboard = () => {
                         ) : (
                             <h3>No Results to Display</h3>
                         )}
-
                     </div>
                 </div>
+
             </div>
         </div>
     );
