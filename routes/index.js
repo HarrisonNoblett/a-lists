@@ -1,9 +1,9 @@
 // Dependencies
 const path = require("path");
 const router = require("express").Router();
-const axios = require("axios");
 const apiRoutes = require("./api");
 
+<<<<<<< HEAD
 // Watchmode
 const WKEY = process.env.REACT_APP_WMAPIKEY;
 const BASEURL =
@@ -31,6 +31,10 @@ router.get("/api/films/:film", function (req, res) {
 });
 
 // Routes
+=======
+
+// API Routes
+>>>>>>> main
 router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
@@ -40,6 +44,7 @@ router.use(function (req, res) {
 
 module.exports = router;
 
+<<<<<<< HEAD
 /* TO GET ID & TITLE: ---------------
 https://api.watchmode.com/v1/search/?apiKey= ---- &search_field=name&search_value=Game%20of%20Thrones
 (GAME OF THRONES ID = 345534)
@@ -57,3 +62,6 @@ network 248, 2554 = netflix
 TO GET POSTER URL [TV SHOW] --------------------
 https://api.watchmode.com/v1/title/345534/seasons?apiKey= ---- &search_field=name&search_value=Game%20of%20Thrones
 "poster_url"*/
+=======
+
+>>>>>>> main

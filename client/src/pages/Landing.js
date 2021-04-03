@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../img/logo.png';
+import logo from '../img/logocopy.png';
 import movie from '../img/movie.jpg';
 import LoginButton from "../components/LoginButton";
 
@@ -12,7 +12,7 @@ const Landing = () => {
             </div>
             <div className="row">
                 <div className="col-md-7">
-                    <img src={movie} className="img-fluid" alt="Movie" style={{ height: '100%'}}></img>
+                    <img src={movie} className="img-fluid" alt="Movie" style={{ height: '100%' }}></img>
                 </div>
                 <div className="col-md-5">
                     <img src={logo} className="img-fluid d-block" alt="Logo" ></img>

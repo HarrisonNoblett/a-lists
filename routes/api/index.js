@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const networkRoutes = require("./networks");
+const watchlistRoutes = require("./watchlist");
 
 
-// Network Routes
-router.use("/network", networkRoutes);
+// Watchlist Routes
+router.use("/watchlist", watchlistRoutes);
 
 module.exports = router;
 
