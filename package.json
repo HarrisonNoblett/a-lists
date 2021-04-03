@@ -22,6 +22,7 @@
     "dependencies": {
         "@auth0/auth0-react": "^1.4.0",
         "axios": "^0.21.1",
+        "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "if-env": "^1.0.4",
         "mongoose": "^5.3.16",

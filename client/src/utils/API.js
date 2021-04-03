@@ -1,12 +1,16 @@
 import axios from "axios";
 
 export default {
-    // Gets searched api results
-    getFilms: function (film) {
-        return axios.get("/api/films/" + film);
+    // Gets all movies
+    getWatchlist: function () {
+        return axios.get("/api/watchlist");
     },
-
-    getNetwork: function (network) {
-        return axios.get("/api/network/" + network);
+    // Deletes the movie with the given id
+    deleteWatchlist: function (id) {
+        return axios.delete("/api/watchlist/" + id);
+    },
+    // Saves a movie to the database
+    saveWatchlist: function (watchlistData) {
+        return axios.post("/api/watchlist", watchlistData);
     }
 };

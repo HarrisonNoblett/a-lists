@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Landing from './pages/Landing';
 import Dashboard from './pages/Dashboard';
-import history from "./utils/history";
-
 
 function App() {
   return (
-    <Router history={history}>
+    <Router>
       <div>
         <Switch>
           <Route exact path='/' component={Landing} />
