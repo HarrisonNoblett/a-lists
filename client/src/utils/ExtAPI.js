@@ -4,7 +4,7 @@ require("dotenv").config();
 // Watchmode
 const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=";
 const ENDURL = "&search_field=name&search_value=";
-const WKEY = process.env.WMAPI_KEY;
+const WKEY = process.env.WM_API_KEY;
 
 // // Ombd
 // const OKEY = process.env.OMBDKEY;
