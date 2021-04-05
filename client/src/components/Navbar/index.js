@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../img/logocopy.png";
 import LogoutButton from "../LogoutButton";
+import "./style.css"
 
 function Navbar() {
     return (
@@ -26,6 +27,5 @@ function Navbar() {
             </nav>
         </div>
     )
-
 }
 export default Navbar();
