@@ -59,12 +59,6 @@ const Dashboard = () => {
             .catch(err => console.log(err));
     }
 
-    // network 1 = HBO;
-    // network 8 = Disney;
-    // network 1204, 2703, 2328 = Amazon;
-    // network 822 = appletv;
-    // network 431 = hulu;
-    // network 248, 2554 = netflix
     // Updates state for saving to the database
     function handleFormSave(event) {
         console.log(event.target)
@@ -109,7 +103,7 @@ const Dashboard = () => {
             poster_url: poster.Poster,
             network: network,
             view_url: view_url
-        })
+        }).then(res => console.log(res));
     }
 
     return (
