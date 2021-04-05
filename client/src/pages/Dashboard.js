@@ -3,18 +3,24 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import API from "../utils/API";
 import ExtAPI from "../utils/ExtAPI";
+import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 
 const Dashboard = () => {
     const [watchlist, setWatchlist] = useState([]);
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
     const [poster, setPoster] = useState([]);
+    const { user, isLoading } = useAuth0();
     // const [formObject, setFormObject] = useState({});
 
     // Loads network and store them with setnetwork
     useEffect(() => {
         loadWatchlist();
     }, []);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     // Loads users saved list
     function loadWatchlist() {
@@ -162,4 +168,6 @@ const Dashboard = () => {
     );
 }
 
-export default Dashboard;
+export default withAuthenticationRequired(Dashboard, {
+    onRedirecting: () => <div>Loading...</div>
+});
