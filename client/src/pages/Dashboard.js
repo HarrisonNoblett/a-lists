@@ -29,14 +29,6 @@ const Dashboard = () => {
         const filmInput = event.target.value;
         setFilm(filmInput);
     }
-    // Updates state for saving to the database
-    // function handleFormSave(event) {
-    //     console.log(event.target)
-    //     event.preventDefault();
-    //     API.saveWatchlist({
-
-    //     })
-    // }
 
     // calls 3 apis to pull search 
     function handleSubmit(event) {
@@ -65,6 +57,59 @@ const Dashboard = () => {
         API.deleteWatchlist(id)
             .then(data => loadWatchlist())
             .catch(err => console.log(err));
+    }
+
+    // network 1 = HBO;
+    // network 8 = Disney;
+    // network 1204, 2703, 2328 = Amazon;
+    // network 822 = appletv;
+    // network 431 = hulu;
+    // network 248, 2554 = netflix
+    // Updates state for saving to the database
+    function handleFormSave(event) {
+        console.log(event.target)
+        event.preventDefault();
+        console.log(info);
+        console.log(poster)
+        let network;
+        let view_url;
+        switch (info.network[0]) {
+            case 1:
+                network = "HBO";
+                view_url = "https://www.hbomax.com/"
+                break;
+            case 8:
+                network = "Disney";
+                view_url = "https://www.disneyplus.com/home"
+                break;
+            case 1204:
+            case 2703:
+            case 2328:
+                network = "Amazon";
+                view_url = "https://www.amazon.com/Amazon-Video/b?ie=UTF8&node=2858778011"
+                break;
+            case 822:
+                network = "Apple TV";
+                view_url = "https://www.apple.com/apple-tv-plus/"
+                break;
+            case 431:
+                network = "Hulu";
+                view_url = "https://www.hulu.com/welcome"
+                break;
+            case 248:
+            case 2554:
+                network = "Netflix";
+                view_url = "https://www.netflix.com/"
+                break;
+            default:
+
+        }
+        API.saveWatchlist({
+            title: info.title,
+            poster_url: poster.Poster,
+            network: network,
+            view_url: view_url
+        })
     }
 
     return (
@@ -115,6 +160,6 @@ const Dashboard = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Dashboard;
