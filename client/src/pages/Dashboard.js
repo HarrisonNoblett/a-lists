@@ -61,10 +61,8 @@ const Dashboard = () => {
 
     // Updates state for saving to the database
     function handleFormSave(event) {
-        console.log(event.target)
         event.preventDefault();
         console.log(info);
-        console.log(poster)
         let network;
         let view_url;
         switch (info.network[0]) {
@@ -96,7 +94,8 @@ const Dashboard = () => {
                 view_url = "https://www.netflix.com/"
                 break;
             default:
-
+                network = "null";
+                view_url = "null";
         }
         API.saveWatchlist({
             title: info.title,
@@ -141,7 +140,7 @@ const Dashboard = () => {
                             <div>
                                 {watchlist.map(watchlist => (
                                     <button type="button" className="btn mr-1 btn-sm rounded shadow-lg topTen" key={watchlist._id}>
-                                        <img className="topPosters" src={watchlist.poster_url} alt="poster"></img><span className="delBtn" onClick={handleDelete}>x</span>
+                                        <a href={watchlist.view_url}> <img className="topPosters" src={watchlist.poster_url} alt="poster"></img></a><span className="delBtn" onClick={handleDelete}>x</span>
                                     </button>
                                 ))}
                             </div>
@@ -150,7 +149,6 @@ const Dashboard = () => {
                         )}
                     </div>
                 </div>
-
             </div>
         </div>
     );
