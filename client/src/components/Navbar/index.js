@@ -16,7 +16,7 @@ function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item active">
-                                <li classNameName="nav-item">
+                                <li className="nav-item">
                                     <LogoutButton />
                                 </li>
                             </li>
