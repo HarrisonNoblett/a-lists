@@ -56,44 +56,50 @@ const Dashboard = () => {
       .catch((err) => console.log(err));
   }
 
-  // Updates state for saving to the database
-  function handleFormSave(event) {
-    console.log(event.target);
-    event.preventDefault();
-    console.log(info);
-    console.log(poster);
-    let network;
-    let view_url;
-    switch (info.network[0]) {
-      case 1:
-        network = "HBO";
-        view_url = "https://www.hbomax.com/";
-        break;
-      case 8:
-        network = "Disney";
-        view_url = "https://www.disneyplus.com/home";
-        break;
-      case 1204:
-      case 2703:
-      case 2328:
-        network = "Amazon";
-        view_url =
-          "https://www.amazon.com/Amazon-Video/b?ie=UTF8&node=2858778011";
-        break;
-      case 822:
-        network = "Apple TV";
-        view_url = "https://www.apple.com/apple-tv-plus/";
-        break;
-      case 431:
-        network = "Hulu";
-        view_url = "https://www.hulu.com/welcome";
-        break;
-      case 248:
-      case 2554:
-        network = "Netflix";
-        view_url = "https://www.netflix.com/";
-        break;
-      default:
+    // Updates state for saving to the database
+    function handleFormSave(event) {
+        event.preventDefault();
+        console.log(info);
+        let network;
+        let view_url;
+        switch (info.network[0]) {
+            case 1:
+                network = "HBO";
+                view_url = "https://www.hbomax.com/"
+                break;
+            case 8:
+                network = "Disney";
+                view_url = "https://www.disneyplus.com/home"
+                break;
+            case 1204:
+            case 2703:
+            case 2328:
+                network = "Amazon";
+                view_url = "https://www.amazon.com/Amazon-Video/b?ie=UTF8&node=2858778011"
+                break;
+            case 822:
+                network = "Apple TV";
+                view_url = "https://www.apple.com/apple-tv-plus/"
+                break;
+            case 431:
+                network = "Hulu";
+                view_url = "https://www.hulu.com/welcome"
+                break;
+            case 248:
+            case 2554:
+                network = "Netflix";
+                view_url = "https://www.netflix.com/"
+                break;
+            default:
+                network = "null";
+                view_url = "null";
+        }
+        API.saveWatchlist({
+            title: info.title,
+            poster_url: poster.Poster,
+            network: network,
+            view_url: view_url
+        }).then(res => console.log(res));
     }
     API.saveWatchlist({
       title: info.title,
@@ -136,61 +142,45 @@ const Dashboard = () => {
           </form>
         </div>
 
-        <div className="resultsContainer text-white text-center">
-          <div className="apiPoster col-md-6 mb-3">
-            <img src={poster.Poster} alt="film poster"></img>
-          </div>
+                <div className="resultsContainer text-white text-center">
+                    <div className="apiPoster col-md-6 mb-3">
+                        <img src={poster.Poster} alt="film poster"></img>
+                    </div>
 
-          <div className="col-md-6">
-            <h3>{info.title}</h3>
-            <h4>{info.type}</h4>
-            <h5>{info.rating}</h5>
-            <p>{info.plot}</p>
-            <div className="saveButton">
-              <button
-                type="button"
-                className="btn btn-dark"
-                onClick={handleFormSave}
-              >
-                Save
-              </button>
+                    <div className="col-md-6">
+                        <h3>{info.title}</h3>
+                        <h4>{info.type}</h4>
+                        <h5>{info.rating}</h5>
+                        <p>{info.plot}</p>
+                        <div className="saveButton">
+                            <button type="button" className="btn btn-dark" onClick={handleFormSave}>Save</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="jumbotron jumbotron-fluid shadow-lg">
+                    <div className="container text-center">
+                        <h2 className="lead">HBO Max WatchList</h2>
+                        <hr />
+                        {watchlist.length ? (
+                            <div>
+                                {watchlist.map(watchlist => (
+                                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg topTen" key={watchlist._id}>
+                                        <a href={watchlist.view_url}> <img className="topPosters" src={watchlist.poster_url} alt="poster"></img></a><span className="delBtn" onClick={handleDelete}>x</span>
+                                    </button>
+                                ))}
+                            </div>
+                        ) : (
+                            <h3>No Results to Display</h3>
+                        )}
+                    </div>
+                </div>
+
+                <Footer />
             </div>
-          </div>
         </div>
 
-        <div className="jumbotron jumbotron-fluid shadow-lg">
-          <div className="container text-center">
-            <h2 className="lead">HBO Max WatchList</h2>
-            <hr />
-            {watchlist.length ? (
-              <div>
-                {watchlist.map((watchlist) => (
-                  <button
-                    type="button"
-                    className="btn mr-1 btn-sm rounded shadow-lg topTen"
-                    key={watchlist._id}
-                  >
-                    <img
-                      className="topPosters"
-                      src={watchlist.poster_url}
-                      alt="poster"
-                    ></img>
-                    <span className="delBtn" onClick={handleDelete}>
-                      x
-                    </span>
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </div>
-        </div>
-
-        <Footer />
-      </div>
-    </div>
-  );
-};
+    );
+}
 
 export default Dashboard;
