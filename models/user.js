@@ -12,13 +12,16 @@ const userSchema = new Schema({
         default: "",
         required: true
     },
-
-    password: {
+    picture: {
         type: String,
-        default: "",
-        required: true
-    }
-
+        defaul: ""
+    },
+    // watchlist: [
+    //     {
+    //      type: Schema.Types.ObjectId,
+    //      ref: "Watchlist"   
+    //     }
+    // ]
 });
 
 const User = mongoose.model("User", userSchema);
