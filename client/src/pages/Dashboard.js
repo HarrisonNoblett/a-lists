@@ -105,7 +105,7 @@ const Dashboard = () => {
                 view_url = "https://www.netflix.com/"
                 break;
             default:
-                network = "null";
+                network = "Other Networks";
                 view_url = "null";
         }
         API.saveWatchlist({
@@ -131,15 +131,15 @@ const Dashboard = () => {
                     </form>
                 </div>
 
-                <div className="resultsContainer text-white text-center">
-                    <div className="apiPoster col-md-6 mb-3">
+                <div className="row resultsContainer text-white text-center">
+                    <div className="apiPoster col-md-6">
                         <img src={poster.Poster} alt="film poster"></img>
                     </div>
 
                     <div className="col-md-6">
                         <h3>{info.title}</h3>
-                        <h4>{info.type}</h4>
-                        <h5>{info.rating}</h5>
+                        <h5>Film Type: {info.type}</h5>
+                        <h5>Rating: {info.rating}</h5>
                         <p>{info.plot}</p>
                         <div className="saveButton">
                             <button type="button" className="btn btn-dark" onClick={handleFormSave}>Save</button>
