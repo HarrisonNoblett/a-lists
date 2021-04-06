@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DeleteBtn from "../components/DeleteBtn";
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import API from "../utils/API";
@@ -6,10 +7,13 @@ import ExtAPI from "../utils/ExtAPI";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 
 const Dashboard = () => {
+    // Setting initial state
     const [watchlist, setWatchlist] = useState([]);
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
     const [poster, setPoster] = useState([]);
+
+    // Set useAuth0 hook
     const { user, isLoading } = useAuth0();
     // const [formObject, setFormObject] = useState({});
 
@@ -109,7 +113,7 @@ const Dashboard = () => {
             poster_url: poster.Poster,
             network: network,
             view_url: view_url
-        }).then(res => console.log(res));
+        }).then(res => loadWatchlist());
     }
 
     return (
@@ -151,7 +155,7 @@ const Dashboard = () => {
                             <div>
                                 {watchlist.map(watchlist => (
                                     <button type="button" className="btn mr-1 btn-sm rounded shadow-lg topTen" key={watchlist._id}>
-                                        <a href={watchlist.view_url}> <img className="topPosters" src={watchlist.poster_url} alt="poster"></img></a><span className="delBtn" onClick={handleDelete}>x</span>
+                                        <a href={watchlist.view_url}> <img className="topPosters" src={watchlist.poster_url} alt="poster"></img></a><DeleteBtn onClick={() => handleDelete(watchlist._id)} />
                                     </button>
                                 ))}
                             </div>
