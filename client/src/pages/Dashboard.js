@@ -112,39 +112,54 @@ const Dashboard = () => {
       view_url: view_url,
     }).then((res) => loadWatchlist());
   }
+    return (
+        <div>
+            <Navbar />
+            <style>{'body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }'}</style>
+            <div className="container">
+                <div className="jumbotron jumbotron-fluid shadow-lg">
+                    <div className="container">
+                        <h1 className="display-4 text-center">A-Lists</h1>
+                    </div>
+                    <form className="input-group mb-3 shadow-lg">
+                        <input type="text" className="form-control" placeholder="Enter Movies and Shows to add to your Watch List" aria-describedby="button-addon2" onChange={handleInputChange} onSubmit={handleSubmit}></input>
+                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handleSubmit}>Submit</button>
+                    </form>
+                </div>
 
-  return (
-    <div>
-      {Navbar}
-      <style>
-        {
-          "body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }"
-        }
-      </style>
-      <div className="container">
-        <div className="jumbotron jumbotron-fluid shadow-lg">
-          <div className="container">
-            <h1 className="display-4 text-center">A-Lists</h1>
-          </div>
-          <form className="input-group mb-3 shadow-lg">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter Movies and Shows to add to your Watch List"
-              aria-describedby="button-addon2"
-              onChange={handleInputChange}
-              onSubmit={handleSubmit}
-            ></input>
-            <button
-              className="btn btn-outline-secondary"
-              type="button"
-              id="button-addon2"
-              onClick={handleSubmit}
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+                <div className="row resultsContainer text-white text-center">
+                    <div className="apiPoster col-md-6">
+                        <img src={poster.Poster} alt="film poster"></img>
+                    </div>
+
+                    <div className="col-md-6">
+                        <h3>{info.title}</h3>
+                        <h5>Film Type: {info.type}</h5>
+                        <h5>Rating: {info.rating}</h5>
+                        <p>{info.plot}</p>
+                        <div className="saveButton">
+                            <button type="button" className="btn btn-dark" onClick={handleFormSave}>Save</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="jumbotron jumbotron-fluid shadow-lg">
+                    <div className="container text-center">
+                        <h2 className="lead">HBO Max WatchList</h2>
+                        <hr />
+                        {watchlist.length ? (
+                            <div>
+                                {watchlist.map(watchlist => (
+                                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg topTen" key={watchlist._id}>
+                                        <a href={watchlist.view_url}> <img className="topPosters" src={watchlist.poster_url} alt="poster"></img></a><DeleteBtn onClick={() => handleDelete(watchlist._id)} />
+                                    </button>
+                                ))}
+                            </div>
+                        ) : (
+                            <h3>No Results to Display</h3>
+                        )}
+                    </div>
+                </div>
 
         <div className="row resultsContainer text-white text-center">
           <div className="apiPoster col-md-6">
