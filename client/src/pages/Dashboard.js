@@ -23,23 +23,6 @@ const Dashboard = () => {
     loadWatchlist();
   }, []);
 
-  // Runs everytime user changes
-  useEffect(() => {
-    API.findUser(user.email)
-      .then((res) => setCheckUser(res.data))
-      .catch((err) => console.log(err));
-    if (checkUser.email === user.email) {
-      return;
-    }
-    API.saveUser({
-      name: user.name,
-      email: user.email,
-      picture: user.picture,
-    })
-      .then()
-      .catch((err) => console.log(err));
-  }, [checkUser.email, user.email, user.name, user.picture]);
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -161,58 +144,6 @@ const Dashboard = () => {
               Submit
             </button>
           </form>
-        </div>
-
-        <div className="row resultsContainer text-white text-center">
-          <div className="apiPoster col-md-6">
-            <img src={poster.Poster} alt="film poster"></img>
-          </div>
-
-          <div className="col-md-6">
-            <h3>{info.title}</h3>
-            <h5>Film Type: {info.type}</h5>
-            <h5>Rating: {info.rating}</h5>
-            <p>{info.plot}</p>
-            <div className="saveButton">
-              <button
-                type="button"
-                className="btn btn-dark"
-                onClick={handleFormSave}
-              >
-                Save
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="jumbotron jumbotron-fluid shadow-lg">
-          <div className="container text-center">
-            <h2 className="lead">HBO Max WatchList</h2>
-            <hr />
-            {watchlist.length ? (
-              <div>
-                {watchlist.map((watchlist) => (
-                  <button
-                    type="button"
-                    className="btn mr-1 btn-sm rounded shadow-lg topTen"
-                    key={watchlist._id}
-                  >
-                    <a href={watchlist.view_url}>
-                      {" "}
-                      <img
-                        className="topPosters"
-                        src={watchlist.poster_url}
-                        alt="poster"
-                      ></img>
-                    </a>
-                    <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </div>
         </div>
 
         <div className="row resultsContainer text-white text-center">
