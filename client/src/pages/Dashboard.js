@@ -1,177 +1,278 @@
 import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import API from "../utils/API";
 import ExtAPI from "../utils/ExtAPI";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 
 const Dashboard = () => {
-    // Setting initial state
-    const [watchlist, setWatchlist] = useState([]);
-    const [film, setFilm] = useState("");
-    const [info, setInfo] = useState({});
-    const [poster, setPoster] = useState([]);
+  // Setting initial state
+  const [watchlist, setWatchlist] = useState([]);
+  const [film, setFilm] = useState("");
+  const [info, setInfo] = useState({});
+  const [poster, setPoster] = useState([]);
+  const [checkUser, setCheckUser] = useState({});
 
-    // Set useAuth0 hook
-    const { user, isLoading } = useAuth0();
-    // const [formObject, setFormObject] = useState({});
+  // Set useAuth0 hook
+  const { user, isLoading } = useAuth0();
+  // const [formObject, setFormObject] = useState({});
 
-    // Loads network and store them with setnetwork
-    useEffect(() => {
-        loadWatchlist();
-    }, []);
+  // Loads network and store them with setnetwork
+  useEffect(() => {
+    loadWatchlist();
+  }, []);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
+  // Runs everytime user changes
+  useEffect(() => {
+    API.findUser(user.email)
+      .then((res) => setCheckUser(res.data))
+      .catch((err) => console.log(err));
+    if (checkUser.email === user.email) {
+      return;
     }
+    API.saveUser({
+      name: user.name,
+      email: user.email,
+      picture: user.picture,
+    })
+      .then()
+      .catch((err) => console.log(err));
+  }, [checkUser.email, user.email, user.name, user.picture]);
 
-    // Loads users saved list
-    function loadWatchlist() {
-        API.getWatchlist()
-            .then(res =>
-                setWatchlist(res.data))
-            .catch(err => console.log(err));
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  // Loads users saved list
+  function loadWatchlist() {
+    API.getWatchlist()
+      .then((res) => setWatchlist(res.data))
+      .catch((err) => console.log(err));
+  }
+
+  // grabs the users search input
+  function handleInputChange(event) {
+    event.preventDefault();
+    const filmInput = event.target.value;
+    setFilm(filmInput);
+  }
+
+  // calls 3 apis to pull search
+  function handleSubmit(event) {
+    event.preventDefault();
+    ExtAPI.getTitles(film).then((data) => {
+      console.log(data.data.title_results[0].id);
+      ExtAPI.getInfo(data.data.title_results[0].id).then((data) => {
+        setInfo({
+          title: data.data.title,
+          type: data.data.type,
+          plot: data.data.plot_overview,
+          rating: data.data.us_rating,
+          network: data.data.networks,
+        });
+      });
+      ExtAPI.getPoster(film)
+        .then((data) => setPoster(data.data))
+        .catch((err) => console.log(err));
+    });
+  }
+
+  function handleDelete(id) {
+    API.deleteWatchlist(id)
+      .then((data) => loadWatchlist())
+      .catch((err) => console.log(err));
+  }
+
+  // Updates state for saving to the database
+  function handleFormSave(event) {
+    event.preventDefault();
+    console.log(info);
+    let network;
+    let view_url;
+    switch (info.network[0]) {
+      case 1:
+        network = "HBO";
+        view_url = "https://www.hbomax.com/";
+        break;
+      case 8:
+        network = "Disney";
+        view_url = "https://www.disneyplus.com/home";
+        break;
+      case 1204:
+      case 2703:
+      case 2328:
+        network = "Amazon";
+        view_url =
+          "https://www.amazon.com/Amazon-Video/b?ie=UTF8&node=2858778011";
+        break;
+      case 822:
+        network = "Apple TV";
+        view_url = "https://www.apple.com/apple-tv-plus/";
+        break;
+      case 431:
+        network = "Hulu";
+        view_url = "https://www.hulu.com/welcome";
+        break;
+      case 248:
+      case 2554:
+        network = "Netflix";
+        view_url = "https://www.netflix.com/";
+        break;
+      default:
+        network = "Other Networks";
+        view_url = "null";
     }
-
-    // grabs the users search input
-    function handleInputChange(event) {
-        event.preventDefault();
-        const filmInput = event.target.value;
-        setFilm(filmInput);
-    }
-
-    // calls 3 apis to pull search 
-    function handleSubmit(event) {
-        event.preventDefault();
-        ExtAPI.getTitles(film)
-            .then(data => {
-                console.log(data.data.title_results[0].id)
-                ExtAPI.getInfo(data.data.title_results[0].id)
-                    .then(data => {
-                        setInfo({
-                            title: data.data.title,
-                            type: data.data.type,
-                            plot: data.data.plot_overview,
-                            rating: data.data.us_rating,
-                            network: data.data.networks
-                        });
-                    })
-                ExtAPI.getPoster(film)
-                    .then(data =>
-                        setPoster(data.data))
-                    .catch(err => console.log(err));
-            })
-    }
-
-    function handleDelete(id) {
-        API.deleteWatchlist(id)
-            .then(data => loadWatchlist())
-            .catch(err => console.log(err));
-    }
-
-    // Updates state for saving to the database
-    function handleFormSave(event) {
-        event.preventDefault();
-        console.log(info);
-        let network;
-        let view_url;
-        switch (info.network[0]) {
-            case 1:
-                network = "HBO";
-                view_url = "https://www.hbomax.com/"
-                break;
-            case 8:
-                network = "Disney";
-                view_url = "https://www.disneyplus.com/home"
-                break;
-            case 1204:
-            case 2703:
-            case 2328:
-                network = "Amazon";
-                view_url = "https://www.amazon.com/Amazon-Video/b?ie=UTF8&node=2858778011"
-                break;
-            case 822:
-                network = "Apple TV";
-                view_url = "https://www.apple.com/apple-tv-plus/"
-                break;
-            case 431:
-                network = "Hulu";
-                view_url = "https://www.hulu.com/welcome"
-                break;
-            case 248:
-            case 2554:
-                network = "Netflix";
-                view_url = "https://www.netflix.com/"
-                break;
-            default:
-                network = "Other Networks";
-                view_url = "null";
+    API.saveWatchlist({
+      title: info.title,
+      poster_url: poster.Poster,
+      network: network,
+      view_url: view_url,
+    }).then((res) => loadWatchlist());
+  }
+  return (
+    <div>
+      <Navbar />
+      <style>
+        {
+          "body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }"
         }
-        API.saveWatchlist({
-            title: info.title,
-            poster_url: poster.Poster,
-            network: network,
-            view_url: view_url
-        }).then(res => loadWatchlist());
-    }
-
-    return (
-        <div>
-            <Navbar />
-            <style>{'body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }'}</style>
-            <div className="container">
-                <div className="jumbotron jumbotron-fluid shadow-lg mt-5">
-                    <div className="container">
-                        <h1 className="display-4 text-center">A-Lists</h1>
-                    </div>
-                    <form className="input-group mb-3 shadow-lg">
-                        <input type="text" className="form-control" placeholder="Enter Movies and Shows to add to your Watch List" aria-describedby="button-addon2" onChange={handleInputChange} onSubmit={handleSubmit}></input>
-                        <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handleSubmit}>Submit</button>
-                    </form>
-                </div>
-
-                <div className="row resultsContainer text-white text-center">
-                    <div className="apiPoster col-md-6">
-                        <img src={poster.Poster} alt="film poster"></img>
-                    </div>
-
-                    <div className="col-md-6">
-                        <h3>{info.title}</h3>
-                        <h5>Film Type: {info.type}</h5>
-                        <h5>Rating: {info.rating}</h5>
-                        <p>{info.plot}</p>
-                        <div className="saveButton">
-                            <button type="button" className="btn btn-dark" onClick={handleFormSave}>Save</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="jumbotron jumbotron-fluid shadow-lg">
-                    <div className="container text-center">
-                        <h2 className="lead">HBO Max WatchList</h2>
-                        <hr />
-                        {watchlist.length ? (
-                            <div>
-                                {watchlist.map(watchlist => (
-                                    <button type="button" className="btn mr-1 btn-sm rounded shadow-lg topTen" key={watchlist._id}>
-                                        <a href={watchlist.view_url}> <img className="topPosters" src={watchlist.poster_url} alt="poster"></img></a><DeleteBtn onClick={() => handleDelete(watchlist._id)} />
-                                    </button>
-                                ))}
-                            </div>
-                        ) : (
-                            <h3>No Results to Display</h3>
-                        )}
-                    </div>
-                </div>
-
-                <Footer />
-            </div>
+      </style>
+      <div className="container">
+        <div className="jumbotron jumbotron-fluid shadow-lg">
+          <div className="container">
+            <h1 className="display-4 text-center">A-Lists</h1>
+          </div>
+          <form className="input-group mb-3 shadow-lg">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter Movies and Shows to add to your Watch List"
+              aria-describedby="button-addon2"
+              onChange={handleInputChange}
+              onSubmit={handleSubmit}
+            ></input>
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+              id="button-addon2"
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
+          </form>
         </div>
 
-    );
-}
+        <div className="row resultsContainer text-white text-center">
+          <div className="apiPoster col-md-6">
+            <img src={poster.Poster} alt="film poster"></img>
+          </div>
+
+          <div className="col-md-6">
+            <h3>{info.title}</h3>
+            <h5>Film Type: {info.type}</h5>
+            <h5>Rating: {info.rating}</h5>
+            <p>{info.plot}</p>
+            <div className="saveButton">
+              <button
+                type="button"
+                className="btn btn-dark"
+                onClick={handleFormSave}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="jumbotron jumbotron-fluid shadow-lg">
+          <div className="container text-center">
+            <h2 className="lead">HBO Max WatchList</h2>
+            <hr />
+            {watchlist.length ? (
+              <div>
+                {watchlist.map((watchlist) => (
+                  <button
+                    type="button"
+                    className="btn mr-1 btn-sm rounded shadow-lg topTen"
+                    key={watchlist._id}
+                  >
+                    <a href={watchlist.view_url}>
+                      {" "}
+                      <img
+                        className="topPosters"
+                        src={watchlist.poster_url}
+                        alt="poster"
+                      ></img>
+                    </a>
+                    <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </div>
+        </div>
+
+        <div className="row resultsContainer text-white text-center">
+          <div className="apiPoster col-md-6">
+            <img src={poster.Poster} alt="film poster"></img>
+          </div>
+
+          <div className="col-md-6">
+            <h3>{info.title}</h3>
+            <h5>Film Type: {info.type}</h5>
+            <h5>Rating: {info.rating}</h5>
+            <p>{info.plot}</p>
+            <div className="saveButton">
+              <button
+                type="button"
+                className="btn btn-dark"
+                onClick={handleFormSave}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="jumbotron jumbotron-fluid shadow-lg">
+          <div className="container text-center">
+            <h2 className="lead">HBO Max WatchList</h2>
+            <hr />
+            {watchlist.length ? (
+              <div>
+                {watchlist.map((watchlist) => (
+                  <button
+                    type="button"
+                    className="btn mr-1 btn-sm rounded shadow-lg topTen"
+                    key={watchlist._id}
+                  >
+                    <a href={watchlist.view_url}>
+                      {" "}
+                      <img
+                        className="topPosters"
+                        src={watchlist.poster_url}
+                        alt="poster"
+                      ></img>
+                    </a>
+                    <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+          </div>
+        </div>
+
+        <Footer />
+      </div>
+    </div>
+  );
+};
 
 export default withAuthenticationRequired(Dashboard, {
-    onRedirecting: () => <div>Loading...</div>
+  onRedirecting: () => <div>Loading...</div>,
 });

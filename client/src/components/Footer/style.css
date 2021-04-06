@@ -4,3 +4,36 @@ Grey: 454545
 Dark Green: 2E2E2E
 Black: 000000 */
 
+footer {
+    background-color: #000000;
+    color: #E8E8E8;
+    overflow: hidden; 
+}
+
+h5 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.wrapper {
+    padding: 30px;
+    padding-left: 40px;
+}
+
+img {
+    width: 125px;
+}
+
+.teamLink {
+    color: #E8E8E8;
+    text-decoration: none;
+}
+
+.teamLink:hover {
+    color: white;
+}
+
+.teamLink:active {
+    color: #910000;
+    text-decoration: underline;
+}
+
