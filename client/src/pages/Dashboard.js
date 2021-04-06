@@ -118,7 +118,7 @@ const Dashboard = () => {
 
     return (
         <div>
-            {Navbar}
+            <Navbar />
             <style>{'body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }'}</style>
             <div className="container">
                 <div className="jumbotron jumbotron-fluid shadow-lg">
