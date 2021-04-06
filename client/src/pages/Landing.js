@@ -1,26 +1,23 @@
 import React from 'react';
 import logo from '../img/logocopy.png';
-import movie from '../img/movie.jpg';
 import LoginButton from "../components/LoginButton";
+import "./style.css";
 
 
 const Landing = () => {
     return (
-        <div className="container">
-            <div>
-            <style>{'body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }'}</style>
-            </div>
-            <div className="row">
-                <div className="col-md-7">
-                    <img src={movie} className="img-fluid" alt="Movie" style={{ height: '100%' }}></img>
-                </div>
-                <div className="col-md-5">
-                    <img src={logo} className="img-fluid d-block" alt="Logo" ></img>
-                    <h1 className="mb-3">Join A-Lists today.</h1>
-                    <LoginButton>Sign up</LoginButton>
-                    <LoginButton>Log in</LoginButton>
-                </div>
-            </div>
+        <div>
+        <nav className="navbar navbar-dark fixed-top" style={{ backgroundColor: "rgba(0,0,0,0.8"}}>
+            <a className="navbar-brand" href="/">
+                <img src={logo} alt="Logo" width="100" height="24"></img>
+            </a>
+            <LoginButton>Sign In</LoginButton>
+        </nav>
+        <div className="text-center">
+            <h1 style={{ color: "white", marginTop: "410px" }}>All your streaming in one place.</h1>
+            <h2 style={{ color: "white" }}>Get all your shows and movies under control with A-Lists</h2>
+            <button className="btn btn-light btn-lg mt-3" style={{ fontWeight: "bold" }}>Get Started</button>
+        </div>
         </div>
     );
 }

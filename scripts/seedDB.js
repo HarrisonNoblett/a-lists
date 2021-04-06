@@ -3,6 +3,24 @@ const db = require("../models");
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/alists");
 
+const userSeed = [
+  {
+    name: "Adam Baum",
+    email: "email@abaum.com",
+    password: "adambaum"
+  },
+  {
+    name: "Marsha Mellow",
+    email: "email@mmellow.com",
+    password: "marshamellow"
+  },
+  {
+    name: "Royal Payne",
+    email: "email@royalpayne.com",
+    password: "royalpayne"
+  }
+];
+
 const watchlistSeed = [
   {
     title: "Game of Thrones",
@@ -80,6 +98,18 @@ const watchlistSeed = [
 
 db.Watchlist.remove({})
   .then(() => db.Watchlist.collection.insertMany(watchlistSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+// Inserting User Seed
+db.User.remove({})
+  .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
