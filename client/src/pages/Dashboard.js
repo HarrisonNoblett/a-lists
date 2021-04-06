@@ -102,7 +102,7 @@ const Dashboard = () => {
         view_url = "https://www.netflix.com/";
         break;
       default:
-        network = "null";
+        network = "Other Networks";
         view_url = "null";
     }
     API.saveWatchlist({
@@ -145,15 +145,16 @@ const Dashboard = () => {
             </button>
           </form>
         </div>
-        <div className="resultsContainer text-white text-center">
-          <div className="apiPoster col-md-6 mb-3">
+
+        <div className="row resultsContainer text-white text-center">
+          <div className="apiPoster col-md-6">
             <img src={poster.Poster} alt="film poster"></img>
           </div>
 
           <div className="col-md-6">
             <h3>{info.title}</h3>
-            <h4>{info.type}</h4>
-            <h5>{info.rating}</h5>
+            <h5>Film Type: {info.type}</h5>
+            <h5>Rating: {info.rating}</h5>
             <p>{info.plot}</p>
             <div className="saveButton">
               <button
@@ -173,13 +174,21 @@ const Dashboard = () => {
             <hr />
             {watchlist.length ? (
               <div>
-                {watchlist.map(watchlist => (
+                {watchlist.map((watchlist) => (
                   <button
                     type="button"
                     className="btn mr-1 btn-sm rounded shadow-lg topTen"
                     key={watchlist._id}
                   >
-                    <a href={watchlist.view_url}> <img className="topPosters" src={watchlist.poster_url} alt="poster"></img></a><DeleteBtn onClick={() => handleDelete(watchlist._id)} />
+                    <a href={watchlist.view_url}>
+                      {" "}
+                      <img
+                        className="topPosters"
+                        src={watchlist.poster_url}
+                        alt="poster"
+                      ></img>
+                    </a>
+                    <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
                   </button>
                 ))}
               </div>
