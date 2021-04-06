@@ -2,9 +2,9 @@ import axios from "axios";
 require("dotenv").config();
 
 // Watchmode
-// const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=";
-// const ENDURL = "&search_field=name&search_value=";
-// const WKEY = process.env.WMAPI_KEY;
+const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=";
+const ENDURL = "&search_field=name&search_value=";
+const WKEY = process.env.WMAPI_KEY;
 
 // // Ombd
 const POSTERURL = "http://omdbapi.com/?t="
