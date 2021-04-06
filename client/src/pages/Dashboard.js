@@ -173,23 +173,13 @@ const Dashboard = () => {
             <hr />
             {watchlist.length ? (
               <div>
-                {watchlist.map((watchlist) => (
+                {watchlist.map(watchlist => (
                   <button
                     type="button"
                     className="btn mr-1 btn-sm rounded shadow-lg topTen"
                     key={watchlist._id}
                   >
-                    <a href={watchlist.view_url}>
-                      {" "}
-                      <img
-                        className="topPosters"
-                        src={watchlist.poster_url}
-                        alt="poster"
-                      ></img>
-                    </a>
-                    <span className="delBtn" onClick={handleDelete}>
-                      x
-                    </span>
+                    <a href={watchlist.view_url}> <img className="topPosters" src={watchlist.poster_url} alt="poster"></img></a><DeleteBtn onClick={() => handleDelete(watchlist._id)} />
                   </button>
                 ))}
               </div>
