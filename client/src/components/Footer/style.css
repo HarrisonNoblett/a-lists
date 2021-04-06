@@ -4,3 +4,31 @@ Grey: 454545
 Dark Green: 2E2E2E
 Black: 000000 */
 
+footer {
+    background-color: black;
+    color: #E8E8E8;
+    overflow: hidden;
+    font-family: Georgia, 'Times New Roman', Times, serif; 
+}
+
+.wrapper {
+    padding: 20px;
+    
+}
+
+h3 {
+    font-size: 16px;
+}
+
+img {
+    width: 125px;
+}
+
+a {
+    color: #E8E8E8;
+}
+
+a:hover {
+    color: white;
+}
+
