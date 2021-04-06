@@ -8,7 +8,7 @@ const Landing = () => {
     return (
         <div className="container">
             <div>
-                <style>{'body { background-image: url(https://wallpaperaccess.com/full/2312674.jpg); }'}</style>
+            <style>{'body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }'}</style>
             </div>
             <div className="row">
                 <div className="col-md-7">
