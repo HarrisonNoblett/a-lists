@@ -181,6 +181,12 @@ const Dashboard = () => {
           handleDelete={handleDelete}
         />
 
+        <Watchlist
+          network="Netflix"
+          watchlist={watchlist}
+          handleDelete={handleDelete}
+        />
+        
         <Footer />
       </div>
     </div>
