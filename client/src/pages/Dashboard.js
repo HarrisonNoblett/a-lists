@@ -210,6 +210,13 @@ const Dashboard = () => {
           watchlist={watchlist.filter(watchlist => watchlist.network === "Netflix")}
           handleDelete={handleDelete}
         />
+
+        <Watchlist
+          network="Other Networks"
+          watchlist={watchlist.filter(watchlist => watchlist.network === "Other Networks")}
+          handleDelete={handleDelete}
+        />
+        
         <Footer />
       </div>
     </div>
