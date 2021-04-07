@@ -87,9 +87,11 @@ const Dashboard = () => {
                     view_url = "https://www.hbomax.com/";
                     break;
                 case 8:
+                case 935:
                     network = "Disney";
                     view_url = "https://www.disneyplus.com/home";
                     break;
+                case 420:
                 case 1204:
                 case 2703:
                 case 2328:
@@ -226,7 +228,7 @@ const Dashboard = () => {
                   watchlist={watchlist.filter(watchlist => watchlist.network === "Other Networks")}
                   handleDelete={handleDelete}
                 />
-                
+
                 <Footer />
             </div>
         </div>
