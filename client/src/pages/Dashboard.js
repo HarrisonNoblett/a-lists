@@ -185,35 +185,11 @@ const Dashboard = () => {
                     : null
                 }
 
-                <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
-                    <div className="text-center">
-                        <h2 className="lead">HBO Max Watchlist</h2>
-                        <hr id="hr1" />
-                        {watchlist.length ? (
-                            <div className="watchlistWrap table-responsive">
-                                {watchlist.map((watchlist) => (
-                                    <button
-                                        type="button"
-                                        className="btn mr-1 btn-sm rounded shadow-lg topTen"
-                                        key={watchlist._id}
-                                    >
-                                        <a href={watchlist.view_url}>
-                                            {" "}
-                                            <img
-                                                className="topPosters"
-                                                src={watchlist.poster_url}
-                                                alt="poster"
-                                            ></img>
-                                        </a>
-                                        <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
-                                    </button>
-                                ))}
-                            </div>
-                        ) : (
-                            <h3>No Results to Display</h3>
-                        )}
-                    </div>
-                </div>
+                <Watchlist
+                  network="HBO Max"
+                  watchlist={watchlist.filter(watchlist => watchlist.network === "HBO")}
+                  handleDelete={handleDelete}
+                />
 
                 <Footer />
             </div>
