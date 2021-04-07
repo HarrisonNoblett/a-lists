@@ -29,11 +29,12 @@ h5 {
 }
 
 .teamLink:hover {
-    color: white;
+    color: #910000;
+    text-decoration: none;
 }
 
 .teamLink:active {
-    color: #910000;
+    color: white;
 }
 
 .resultsContainer {
