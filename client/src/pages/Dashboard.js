@@ -50,7 +50,7 @@ const Dashboard = () => {
           type: data.data.type,
           plot: data.data.plot_overview,
           rating: data.data.us_rating,
-          network: data.data.networks,
+          networks: data.data.networks,
         });
       });
       ExtAPI.getPoster(film)
