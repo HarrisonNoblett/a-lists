@@ -177,16 +177,16 @@ const Dashboard = () => {
         
         <Watchlist
           network="HBO Max"
-          watchlist={watchlist}
+          watchlist={watchlist.filter(watchlist => watchlist.network === "HBO")}
           handleDelete={handleDelete}
         />
 
         <Watchlist
           network="Netflix"
-          watchlist={watchlist}
+          watchlist={watchlist.filter(watchlist => watchlist.network === "Netflix")}
           handleDelete={handleDelete}
         />
-        
+
         <Footer />
       </div>
     </div>
