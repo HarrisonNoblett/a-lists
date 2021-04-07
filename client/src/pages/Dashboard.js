@@ -157,10 +157,10 @@ const Dashboard = () => {
 
                 <div className="row resultsContainer text-white text-center">
                     <div className="apiPoster col-md-6">
-                        <img src={poster.Poster} alt="film poster"></img>
+                        <img src={poster.Poster} alt="film poster" id="posterResult"></img>
                     </div>
 
-                    <div className="col-md-6">
+                    <div className="col-md-6" id="resultsCol">
                         <h3>{info.title}</h3>
                         <h5>Film Type: {info.type}</h5>
                         <h5>Rating: {info.rating}</h5>
@@ -179,8 +179,8 @@ const Dashboard = () => {
 
                 <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
                     <div className="text-center">
-                        <h2 className="lead">HBO Max WatchList</h2>
-                        <hr />
+                        <h2 className="lead">HBO Max Watchlist</h2>
+                        <hr id="hr1" />
                         {watchlist.length ? (
                             <div className="watchlistWrap table-responsive">
                                 {watchlist.map((watchlist) => (

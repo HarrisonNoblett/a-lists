@@ -9,7 +9,7 @@ function Footer() {
             <div className="wrapper mx-auto">
                 <div className="row">
                     <div className="col-sm-6 p-2">
-                        <img src={logo} alt="logo"></img><br />
+                        <img src={logo} alt="logo" id="footerLogo"></img><br />
 
                         <p>&copy; 2021 All Rights Reserved.</p>
                     </div>
