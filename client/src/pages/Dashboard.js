@@ -102,6 +102,10 @@ const Dashboard = () => {
         network = "Netflix";
         view_url = "https://www.netflix.com/";
         break;
+      case null:
+        network = "Other Networks";
+        view_url = "null";
+        break;
       default:
         network = "Other Networks";
         view_url = "null";
@@ -142,7 +146,7 @@ const Dashboard = () => {
               id="button-addon2"
               onClick={handleSubmit}
             >
-              Submit
+              Search
             </button>
           </form>
         </div>
