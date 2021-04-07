@@ -192,6 +192,12 @@ const Dashboard = () => {
           watchlist={watchlist.filter(watchlist => watchlist.network === "Amazon")}
           handleDelete={handleDelete}
         />
+
+        <Watchlist
+          network="Apple TV Plus"
+          watchlist={watchlist.filter(watchlist => watchlist.network === "Apple TV")}
+          handleDelete={handleDelete}
+        />
         
         <Footer />
       </div>
