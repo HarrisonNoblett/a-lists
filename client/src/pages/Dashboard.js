@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Watchlist from "../components/Watchlist";
 import API from "../utils/API";
 import ExtAPI from "../utils/ExtAPI";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
@@ -173,36 +174,12 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-
-        <div className="jumbotron jumbotron-fluid shadow-lg">
-          <div className="container text-center">
-            <h2 className="lead">HBO Max WatchList</h2>
-            <hr />
-            {watchlist.length ? (
-              <div>
-                {watchlist.map((watchlist) => (
-                  <button
-                    type="button"
-                    className="btn mr-1 btn-sm rounded shadow-lg topTen"
-                    key={watchlist._id}
-                  >
-                    <a href={watchlist.view_url}>
-                      {" "}
-                      <img
-                        className="topPosters"
-                        src={watchlist.poster_url}
-                        alt="poster"
-                      ></img>
-                    </a>
-                    <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </div>
-        </div>
+        
+        <Watchlist
+          network="HBO Max"
+          watchlist={watchlist}
+          handleDelete={handleDelete}
+        />
 
         <Footer />
       </div>
