@@ -126,95 +126,95 @@ const Dashboard = () => {
             //     setShowResults
             // }
         }
-        return (
-            <div>
-                <Navbar />
-                <style>
-                    {
-                        "body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }"
-                    }
-                </style>
-                <div className="container">
-                    <div id="imgContainer">
-                        <img src={logo} alt="logo" className="dashLogo"></img>
-                    </div>
-                    <div className="jumbotron" id="searchArea">
-                        <form className="input-group mb-3 shadow-lg">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Add a Title to Your Watchlist"
-                                aria-describedby="button-addon2"
-                                onChange={handleInputChange}
-                                onSubmit={handleSubmit}
-                            ></input>
-                            <button
-                                className="btn btn-outline-secondary"
-                                type="submit"
-                                id="button-addon2"
-                                onClick={handleSubmit}
-                            >Search</button>
-                        </form>
-                    </div>
-
-                    <div className="row resultsContainer text-white text-center">
-                        <div className="apiPoster col-md-6">
-                            <img src={poster.Poster} alt="film poster" id="posterResult"></img>
-                        </div>
-
-                        <div className="col-md-6" id="resultsCol">
-                            <h3>{info.title}</h3>
-                            <h5>Film Type: {info.type}</h5>
-                            <h5>Rating: {info.rating}</h5>
-                            <p>{info.plot}</p>
-                            <div className="saveButton">
-                                <button
-                                    type="button"
-                                    className="btn btn-light save"
-                                    onClick={handleFormSave}
-                                >
-                                    Save
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
-                        <div className="text-center">
-                            <h2 className="lead">HBO Max Watchlist</h2>
-                            <hr id="hr1" />
-                            {watchlist.length ? (
-                                <div className="watchlistWrap table-responsive">
-                                    {watchlist.map((watchlist) => (
-                                        <button
-                                            type="button"
-                                            className="btn mr-1 btn-sm rounded shadow-lg topTen"
-                                            key={watchlist._id}
-                                        >
-                                            <a href={watchlist.view_url}>
-                                                {" "}
-                                                <img
-                                                    className="topPosters"
-                                                    src={watchlist.poster_url}
-                                                    alt="poster"
-                                                ></img>
-                                            </a>
-                                            <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
-                                        </button>
-                                    ))}
-                                </div>
-                            ) : (
-                                <h3>No Results to Display</h3>
-                            )}
-                        </div>
-                    </div>
-
-                    <Footer />
+    }
+    return (
+        <div>
+            <Navbar />
+            <style>
+                {
+                    "body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }"
+                }
+            </style>
+            <div className="container">
+                <div id="imgContainer">
+                    <img src={logo} alt="logo" className="dashLogo"></img>
                 </div>
+                <div className="jumbotron" id="searchArea">
+                    <form className="input-group mb-3 shadow-lg">
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Add a Title to Your Watchlist"
+                            aria-describedby="button-addon2"
+                            onChange={handleInputChange}
+                            onSubmit={handleSubmit}
+                        ></input>
+                        <button
+                            className="btn btn-outline-secondary"
+                            type="submit"
+                            id="button-addon2"
+                            onClick={handleSubmit}
+                        >Search</button>
+                    </form>
+                </div>
+
+                <div className="row resultsContainer text-white text-center">
+                    <div className="apiPoster col-md-6">
+                        <img src={poster.Poster} alt="film poster" id="posterResult"></img>
+                    </div>
+
+                    <div className="col-md-6" id="resultsCol">
+                        <h3>{info.title}</h3>
+                        <h5>Film Type: {info.type}</h5>
+                        <h5>Rating: {info.rating}</h5>
+                        <p>{info.plot}</p>
+                        <div className="saveButton">
+                            <button
+                                type="button"
+                                className="btn btn-light save"
+                                onClick={handleFormSave}
+                            >
+                                Save
+                                </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
+                    <div className="text-center">
+                        <h2 className="lead">HBO Max Watchlist</h2>
+                        <hr id="hr1" />
+                        {watchlist.length ? (
+                            <div className="watchlistWrap table-responsive">
+                                {watchlist.map((watchlist) => (
+                                    <button
+                                        type="button"
+                                        className="btn mr-1 btn-sm rounded shadow-lg topTen"
+                                        key={watchlist._id}
+                                    >
+                                        <a href={watchlist.view_url}>
+                                            {" "}
+                                            <img
+                                                className="topPosters"
+                                                src={watchlist.poster_url}
+                                                alt="poster"
+                                            ></img>
+                                        </a>
+                                        <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
+                                    </button>
+                                ))}
+                            </div>
+                        ) : (
+                            <h3>No Results to Display</h3>
+                        )}
+                    </div>
+                </div>
+
+                <Footer />
             </div>
-        );
-    };
-}
+        </div>
+    );
+};
 
 export default withAuthenticationRequired(Dashboard, {
     onRedirecting: () => <div>Loading...</div>,
