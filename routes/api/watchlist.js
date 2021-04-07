@@ -6,11 +6,10 @@ router.route("/")
     .get(watchlistController.findAll)
     .post(watchlistController.create);
 
-// Matches with "/api/books/:id"
+// Matches with "/api/network/:id"
 router
     .route("/:id")
     .get(watchlistController.findById)
     .delete(watchlistController.remove);
-
 
 module.exports = router;
