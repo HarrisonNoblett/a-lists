@@ -13,7 +13,7 @@ const Dashboard = () => {
     const [film, setFilm] = useState("");
     const [info, setInfo] = useState({});
     const [poster, setPoster] = useState([]);
-    // const [showResults, setShowResults] = useState(false);
+    const [showResults, setShowResults] = useState(false);
 
     // Set useAuth0 hook
     const { user, isLoading } = useAuth0();
@@ -44,6 +44,7 @@ const Dashboard = () => {
     // calls 3 apis to pull search
     function handleSubmit(event) {
         event.preventDefault();
+
         ExtAPI.getTitles(film).then((data) => {
             console.log(data.data.title_results[0].id);
             ExtAPI.getInfo(data.data.title_results[0].id).then((data) => {
@@ -59,7 +60,7 @@ const Dashboard = () => {
                 .then((data) => setPoster(data.data))
                 .catch((err) => console.log(err));
         });
-        // showResults();
+        showHide();
     }
 
     function handleDelete(id) {
@@ -120,13 +121,15 @@ const Dashboard = () => {
                 view_url: view_url,
                 email: user.email,
             }).then((res) => loadWatchlist());
-
-            // function showResults(showResults) {
-            //     const results = document.getElementById("#resultsContainer")
-            //     setShowResults
-            // }
         }
     }
+
+    function showHide() {
+        setShowResults({
+            showResults: true
+        })
+    }
+
     return (
         <div>
             <Navbar />
@@ -157,28 +160,29 @@ const Dashboard = () => {
                         >Search</button>
                     </form>
                 </div>
-
-                <div className="row resultsContainer text-white text-center">
-                    <div className="apiPoster col-md-6">
-                        <img src={poster.Poster} alt="film poster" id="posterResult"></img>
-                    </div>
-
-                    <div className="col-md-6" id="resultsCol">
-                        <h3>{info.title}</h3>
-                        <h5>Film Type: {info.type}</h5>
-                        <h5>Rating: {info.rating}</h5>
-                        <p>{info.plot}</p>
-                        <div className="saveButton">
-                            <button
-                                type="button"
-                                className="btn btn-light save"
-                                onClick={handleFormSave}
-                            >
-                                Save
+                {showResults ?
+                    <div className="row resultsContainer text-white text-center">
+                        <div className="apiPoster col-md-6">
+                            <img src={poster.Poster} alt="film poster" id="posterResult"></img>
+                        </div>
+                        <div className="col-md-6" id="resultsCol">
+                            <h3>{info.title}</h3>
+                            <h5>Film Type: {info.type}</h5>
+                            <h5>Rating: {info.rating}</h5>
+                            <p>{info.plot}</p>
+                            <div className="saveButton">
+                                <button
+                                    type="button"
+                                    className="btn btn-light save"
+                                    onClick={handleFormSave}
+                                >
+                                    Save
                                 </button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    : null
+                }
 
                 <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
                     <div className="text-center">
