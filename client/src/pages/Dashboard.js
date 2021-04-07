@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Watchlist from "../components/Watchlist";
 import API from "../utils/API";
 import ExtAPI from "../utils/ExtAPI";
 import logo from "../img/logocopy.png";
@@ -86,9 +87,11 @@ const Dashboard = () => {
                     view_url = "https://www.hbomax.com/";
                     break;
                 case 8:
+                case 935:
                     network = "Disney";
                     view_url = "https://www.disneyplus.com/home";
                     break;
+                case 420:
                 case 1204:
                 case 2703:
                 case 2328:
@@ -184,35 +187,47 @@ const Dashboard = () => {
                     : null
                 }
 
-                <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
-                    <div className="text-center">
-                        <h2 className="lead">HBO Max Watchlist</h2>
-                        <hr id="hr1" />
-                        {watchlist.length ? (
-                            <div className="watchlistWrap table-responsive">
-                                {watchlist.map((watchlist) => (
-                                    <button
-                                        type="button"
-                                        className="btn mr-1 btn-sm rounded shadow-lg topTen"
-                                        key={watchlist._id}
-                                    >
-                                        <a href={watchlist.view_url}>
-                                            {" "}
-                                            <img
-                                                className="topPosters"
-                                                src={watchlist.poster_url}
-                                                alt="poster"
-                                            ></img>
-                                        </a>
-                                        <DeleteBtn onClick={() => handleDelete(watchlist._id)} />
-                                    </button>
-                                ))}
-                            </div>
-                        ) : (
-                            <h3>No Results to Display</h3>
-                        )}
-                    </div>
-                </div>
+                <Watchlist
+                  network="HBO Max"
+                  watchlist={watchlist.filter(watchlist => watchlist.network === "HBO")}
+                  handleDelete={handleDelete}
+                />
+
+                <Watchlist
+                  network="Disney Plus"
+                  watchlist={watchlist.filter(watchlist => watchlist.network === "Disney")}
+                  handleDelete={handleDelete}
+                />
+                
+                <Watchlist
+                  network="Prime Video"
+                  watchlist={watchlist.filter(watchlist => watchlist.network === "Amazon")}
+                  handleDelete={handleDelete}
+                />
+
+                <Watchlist
+                  network="Apple TV Plus"
+                  watchlist={watchlist.filter(watchlist => watchlist.network === "Apple TV")}
+                  handleDelete={handleDelete}
+                />
+
+                <Watchlist
+                  network="Hulu"
+                  watchlist={watchlist.filter(watchlist => watchlist.network === "Hulu")}
+                  handleDelete={handleDelete}
+                />
+
+                <Watchlist
+                  network="Netflix"
+                  watchlist={watchlist.filter(watchlist => watchlist.network === "Netflix")}
+                  handleDelete={handleDelete}
+                />
+
+                <Watchlist
+                  network="Other Networks"
+                  watchlist={watchlist.filter(watchlist => watchlist.network === "Other Networks")}
+                  handleDelete={handleDelete}
+                />
 
                 <Footer />
             </div>
