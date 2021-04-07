@@ -12,11 +12,5 @@ export default {
   // Saves a movie to the database
   saveWatchlist: function (watchlistData) {
     return axios.post("/api/watchlist", watchlistData);
-  },
-  saveUser: function (userData) {
-    return axios.post("/api/user", userData);
-  },
-  findUser: function (email) {
-    return axios.get("/api/user/" + email);
-  },
+  }
 };
