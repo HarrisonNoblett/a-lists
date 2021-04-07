@@ -111,6 +111,7 @@ const Dashboard = () => {
       poster_url: poster.Poster,
       network: network,
       view_url: view_url,
+      user_id: user.sub,
     }).then((res) => loadWatchlist());
   }
   return (
