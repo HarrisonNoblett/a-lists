@@ -1,5 +1,6 @@
 .delBtn {
-    position: absolute;
+    position: relative;
     color: white;
+    float: right;
     background-color: #2E2E2E;
 }

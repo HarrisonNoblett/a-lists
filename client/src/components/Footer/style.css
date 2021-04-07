@@ -19,8 +19,8 @@ h5 {
     padding-left: 40px;
 }
 
-img {
-    width: 125px;
+#footerLogo {
+    width: 115px;
 }
 
 .teamLink {
@@ -29,11 +29,15 @@ img {
 }
 
 .teamLink:hover {
-    color: white;
+    color: #910000;
+    text-decoration: none;
 }
 
 .teamLink:active {
-    color: #910000;
-    text-decoration: underline;
+    color: white;
+}
+
+.resultsContainer {
+    padding: 20px;
 }
 
