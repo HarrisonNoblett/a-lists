@@ -28,9 +28,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
-
         </footer>
-
     )
 }
 
