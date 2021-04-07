@@ -71,42 +71,45 @@ const Dashboard = () => {
     console.log(info);
     let network;
     let view_url;
-    switch (info.network[0]) {
-      case 1:
-        network = "HBO";
-        view_url = "https://www.hbomax.com/";
-        break;
-      case 8:
-        network = "Disney";
-        view_url = "https://www.disneyplus.com/home";
-        break;
-      case 1204:
-      case 2703:
-      case 2328:
-        network = "Amazon";
-        view_url =
-          "https://www.amazon.com/Amazon-Video/b?ie=UTF8&node=2858778011";
-        break;
-      case 822:
-        network = "Apple TV";
-        view_url = "https://www.apple.com/apple-tv-plus/";
-        break;
-      case 431:
-        network = "Hulu";
-        view_url = "https://www.hulu.com/welcome";
-        break;
-      case 248:
-      case 2554:
-        network = "Netflix";
-        view_url = "https://www.netflix.com/";
-        break;
-      case null:
-        network = "Other Networks";
-        view_url = "null";
-        break;
-      default:
-        network = "Other Networks";
-        view_url = "null";
+    if (!info.networks) {
+      network = "Other Networks";
+      view_url = "/dashboard";
+      alert("Unknown Network, Listed in 'Other Networks' Section");
+    } else {
+      switch (info.networks[0]) {
+        case 1:
+          network = "HBO";
+          view_url = "https://www.hbomax.com/";
+          break;
+        case 8:
+          network = "Disney";
+          view_url = "https://www.disneyplus.com/home";
+          break;
+        case 1204:
+        case 2703:
+        case 2328:
+          network = "Amazon";
+          view_url =
+            "https://www.amazon.com/Amazon-Video/b?ie=UTF8&node=2858778011";
+          break;
+        case 822:
+          network = "Apple TV";
+          view_url = "https://www.apple.com/apple-tv-plus/";
+          break;
+        case 431:
+          network = "Hulu";
+          view_url = "https://www.hulu.com/welcome";
+          break;
+        case 248:
+        case 2554:
+          network = "Netflix";
+          view_url = "https://www.netflix.com/";
+          break;
+        default:
+          network = "Other Networks";
+          view_url = "/dashboard";
+          alert("Unknown Network, Listed in 'Other Networks' Section");
+      }
     }
     API.saveWatchlist({
       title: info.title,
