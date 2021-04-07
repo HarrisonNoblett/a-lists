@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
   // Gets all movies
-  getWatchlist: function () {
-    return axios.get("/api/watchlist");
+  getWatchlist: function (email) {
+    return axios.get("/api/watchlist/" + email);
   },
   // Deletes the movie with the given id
   deleteWatchlist: function (id) {
