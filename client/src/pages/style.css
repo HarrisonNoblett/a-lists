@@ -3,3 +3,40 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.container {
+    margin-top: 100px;
+}
+
+#imgContainer {
+    text-align: center;
+}
+
+.dashLogo {
+    width: 400px;
+    padding: 30px;
+}
+
+.jumbotron {
+    border: 5px solid #2E2E2E;
+    
+}
+
+.watchlistWrap {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#button-addon2 {
+    background-color: black;
+    color: white;
+}
+
+#searchArea {
+    background-color: #454545;
+}
+
+#watchlistDiv {
+    background-color: #E8E8E8;
+
+}
