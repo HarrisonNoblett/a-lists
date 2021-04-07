@@ -138,7 +138,7 @@ const Dashboard = () => {
             ></input>
             <button
               className="btn btn-outline-secondary"
-              type="button"
+              type="submit"
               id="button-addon2"
               onClick={handleSubmit}
             >
