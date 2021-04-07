@@ -20,7 +20,7 @@ const watchlistSchema = new Schema({
         type: String,
         required: true
     },
-    user_id: {
+    email: {
         type: String,
         required: true
     }

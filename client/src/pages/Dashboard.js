@@ -12,11 +12,9 @@ const Dashboard = () => {
   const [film, setFilm] = useState("");
   const [info, setInfo] = useState({});
   const [poster, setPoster] = useState([]);
-  const [checkUser, setCheckUser] = useState({});
 
   // Set useAuth0 hook
   const { user, isLoading } = useAuth0();
-  // const [formObject, setFormObject] = useState({});
 
   // Loads network and store them with setnetwork
   useEffect(() => {
@@ -29,7 +27,7 @@ const Dashboard = () => {
 
   // Loads users saved list
   function loadWatchlist() {
-    API.getWatchlist()
+    API.getWatchlist(user.email)
       .then((res) => setWatchlist(res.data))
       .catch((err) => console.log(err));
   }
@@ -115,7 +113,7 @@ const Dashboard = () => {
       poster_url: poster.Poster,
       network: network,
       view_url: view_url,
-      user_id: user.sub,
+      email: user.email,
     }).then((res) => loadWatchlist());
   }
   return (
