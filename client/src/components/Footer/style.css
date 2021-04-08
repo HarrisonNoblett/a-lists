@@ -23,6 +23,7 @@ h5 {
     width: 115px;
 }
 
+/* next 3 styles the A-lists team member names as links to github */
 .teamLink {
     color: #E8E8E8;
     text-decoration: none;

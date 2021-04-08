@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from '../img/logocopy.png';
-import LoginButton from "../components/LoginButton";
+import logo from "../../img/logocopy.png";
+import LoginButton from "../../components/LoginButton";
+import "./style.css";
 
 const Landing = () => {
     return (
@@ -21,6 +22,7 @@ const Landing = () => {
                 <h2 style={{ color: "white" }}>Get all your shows and movies under control with A-Lists</h2>
                 <button className="btn btn-light btn-lg mt-3" style={{ fontWeight: "bold" }}>Get Started</button>
             </div>
+
         </div>
     );
 }
