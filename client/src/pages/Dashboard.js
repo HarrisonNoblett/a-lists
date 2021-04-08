@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import DeleteBtn from "../components/DeleteBtn";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Watchlist from "../components/Watchlist";
@@ -188,45 +187,45 @@ const Dashboard = () => {
                 }
 
                 <Watchlist
-                  network="HBO Max"
-                  watchlist={watchlist.filter(watchlist => watchlist.network === "HBO")}
-                  handleDelete={handleDelete}
+                    network="HBO Max"
+                    watchlist={watchlist.filter(watchlist => watchlist.network === "HBO")}
+                    handleDelete={handleDelete}
                 />
 
                 <Watchlist
-                  network="Disney Plus"
-                  watchlist={watchlist.filter(watchlist => watchlist.network === "Disney")}
-                  handleDelete={handleDelete}
-                />
-                
-                <Watchlist
-                  network="Prime Video"
-                  watchlist={watchlist.filter(watchlist => watchlist.network === "Amazon")}
-                  handleDelete={handleDelete}
+                    network="Disney Plus"
+                    watchlist={watchlist.filter(watchlist => watchlist.network === "Disney")}
+                    handleDelete={handleDelete}
                 />
 
                 <Watchlist
-                  network="Apple TV Plus"
-                  watchlist={watchlist.filter(watchlist => watchlist.network === "Apple TV")}
-                  handleDelete={handleDelete}
+                    network="Prime Video"
+                    watchlist={watchlist.filter(watchlist => watchlist.network === "Amazon")}
+                    handleDelete={handleDelete}
                 />
 
                 <Watchlist
-                  network="Hulu"
-                  watchlist={watchlist.filter(watchlist => watchlist.network === "Hulu")}
-                  handleDelete={handleDelete}
+                    network="Apple TV Plus"
+                    watchlist={watchlist.filter(watchlist => watchlist.network === "Apple TV")}
+                    handleDelete={handleDelete}
                 />
 
                 <Watchlist
-                  network="Netflix"
-                  watchlist={watchlist.filter(watchlist => watchlist.network === "Netflix")}
-                  handleDelete={handleDelete}
+                    network="Hulu"
+                    watchlist={watchlist.filter(watchlist => watchlist.network === "Hulu")}
+                    handleDelete={handleDelete}
                 />
 
                 <Watchlist
-                  network="Other Networks"
-                  watchlist={watchlist.filter(watchlist => watchlist.network === "Other Networks")}
-                  handleDelete={handleDelete}
+                    network="Netflix"
+                    watchlist={watchlist.filter(watchlist => watchlist.network === "Netflix")}
+                    handleDelete={handleDelete}
+                />
+
+                <Watchlist
+                    network="Other Networks"
+                    watchlist={watchlist.filter(watchlist => watchlist.network === "Other Networks")}
+                    handleDelete={handleDelete}
                 />
 
                 <Footer />
