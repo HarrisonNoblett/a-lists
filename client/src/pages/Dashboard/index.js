@@ -7,6 +7,7 @@ import API from "../../utils/API";
 import ExtAPI from "../../utils/ExtAPI";
 import logo from "../../img/logocopy.png";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
+import "./style.css";
 
 const Dashboard = () => {
     // Setting initial state
@@ -164,11 +165,6 @@ const Dashboard = () => {
     return (
         <div>
             <Navbar />
-            <style>
-                {
-                    "body { background-image: url(https://www.xmple.com/wallpaper/gradient-black-grey-linear-1920x1080-c2-000000-a9a9a9-a-150-f-14.svg); }"
-                }
-            </style>
             <div className="container">
                 <div id="imgContainer">
                     <img src={logo} alt="logo" className="dashLogo"></img>
