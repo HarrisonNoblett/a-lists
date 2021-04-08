@@ -87,25 +87,40 @@ const Dashboard = () => {
             switch (info.networks[0]) {
                 case 1:
                 case 13:
+                case 826:
+                case 1724:
+                case 2581:
                     network = "HBO";
                     view_url = "https://www.hbomax.com/";
                     break;
                 case 8:
+                case 18:
                 case 63:
+                case 134:
+                case 219:
+                case 366:
+                case 473:
                 case 935:
+                case 1922:
+                case 1946:
+                case 2640:
                     network = "Disney";
                     view_url = "https://www.disneyplus.com/home";
                     break;
+                case 53:
                 case 60:
                 case 173:
                 case 420:
                 case 1204:
+                case 1206:
+                case 1925:
                 case 2703:
                 case 2328:
                     network = "Amazon";
                     view_url =
                         "https://www.amazon.com/Amazon-Video/b?ie=UTF8&node=2858778011";
                     break;
+                case 681:
                 case 822:
                     network = "Apple TV";
                     view_url = "https://www.apple.com/apple-tv-plus/";
