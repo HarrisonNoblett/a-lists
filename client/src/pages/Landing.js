@@ -3,7 +3,6 @@ import logo from '../img/logocopy.png';
 import LoginButton from "../components/LoginButton";
 import "./style.css";
 
-
 const Landing = () => {
     return (
         <div>
