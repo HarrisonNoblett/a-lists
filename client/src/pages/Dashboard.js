@@ -26,8 +26,8 @@ const Dashboard = () => {
     }, []);
 
     useEffect(() => {
-      console.log(debouncedFilm);
-      handleSubmit();
+        console.log(debouncedFilm);
+        handleSubmit();
     }, [debouncedFilm]);
 
     // Loads users saved list
@@ -42,13 +42,14 @@ const Dashboard = () => {
         event.preventDefault();
         const filmInput = event.target.value;
         setFilm(filmInput);
+        showHide();
     }
 
     // calls 3 apis to pull search
     function handleSubmit(event) {
         if (event) event.preventDefault();
         ExtAPI.getTitles(film).then((data) => {
-          if (data.data.title_results.length < 1) return;
+            if (data.data.title_results.length < 1) return;
             console.log(data.data.title_results[0].id);
             ExtAPI.getInfo(data.data.title_results[0].id).then((data) => {
                 setInfo({
@@ -63,7 +64,7 @@ const Dashboard = () => {
                 .then((data) => setPoster(data.data))
                 .catch((err) => console.log(err));
         });
-        showHide();
+
     }
 
     function handleDelete(id) {
@@ -136,7 +137,7 @@ const Dashboard = () => {
     }
 
     if (isLoading) {
-      return <div>Loading...</div>;
+        return <div>Loading...</div>;
     }
 
     return (
