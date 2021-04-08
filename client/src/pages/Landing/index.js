@@ -6,6 +6,11 @@ import "./style.css";
 const Landing = () => {
     return (
         <div>
+            <style>
+                {
+                    "body {background-image: url(https://www.josesgarcia.com/images/adobe.jpeg); background-repeat: no-repeat; background-size: cover; }"
+                }
+            </style>
             <nav className="navbar navbar-dark fixed-top" style={{ backgroundColor: "rgba(0,0,0,0.8" }}>
                 <a className="navbar-brand" href="/">
                     <img src={logo} alt="Logo" width="100"></img>
