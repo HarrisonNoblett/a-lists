@@ -3,3 +3,58 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.container {
+    margin-top: 100px;
+}
+
+#imgContainer {
+    text-align: center;
+}
+
+.dashLogo {
+    width: 400px;
+    padding: 30px;
+}
+
+.jumbotron {
+    border: 5px solid #2E2E2E;
+    
+}
+h2.lead {
+    font-size: 24px;
+    font-weight: bold;
+}
+.watchlistWrap {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#button-addon2 {
+    background-color: black;
+    color: white;
+}
+
+#searchArea {
+    background-color: #454545;
+    margin-bottom: 5px;
+}
+
+#watchlistDiv {
+    background-color: #E8E8E8;
+    padding: 30px;
+
+}
+
+#hr1 {
+    border: 1px solid #910000;
+    width: 60%; 
+}
+
+#posterResult {
+    width: 200px;
+}
+
+#resultsCol {
+    text-align: left;
+}
