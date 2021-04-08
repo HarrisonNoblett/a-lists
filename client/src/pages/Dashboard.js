@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useDebounce } from 'use-debounce';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Watchlist from "../components/Watchlist";
@@ -11,6 +12,7 @@ const Dashboard = () => {
     // Setting initial state
     const [watchlist, setWatchlist] = useState([]);
     const [film, setFilm] = useState("");
+    const [debouncedFilm] = useDebounce(film, 500);
     const [info, setInfo] = useState({});
     const [poster, setPoster] = useState([]);
     const [showResults, setShowResults] = useState(false);
@@ -23,9 +25,10 @@ const Dashboard = () => {
         loadWatchlist();
     }, []);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
+    useEffect(() => {
+      console.log(debouncedFilm);
+      handleSubmit();
+    }, [debouncedFilm]);
 
     // Loads users saved list
     function loadWatchlist() {
@@ -43,9 +46,9 @@ const Dashboard = () => {
 
     // calls 3 apis to pull search
     function handleSubmit(event) {
-        event.preventDefault();
-
+        if (event) event.preventDefault();
         ExtAPI.getTitles(film).then((data) => {
+          if (data.data.title_results.length < 1) return;
             console.log(data.data.title_results[0].id);
             ExtAPI.getInfo(data.data.title_results[0].id).then((data) => {
                 setInfo({
@@ -130,6 +133,10 @@ const Dashboard = () => {
         setShowResults({
             showResults: true
         })
+    }
+
+    if (isLoading) {
+      return <div>Loading...</div>;
     }
 
     return (
