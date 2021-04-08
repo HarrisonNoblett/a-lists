@@ -1,7 +1,9 @@
+/* Sets the container to start under the nav bar */
 .container {
     margin-top: 100px;
 }
 
+/* the next two align the log and set the width and padding around */
 #imgContainer {
     text-align: center;
 }
@@ -10,15 +12,17 @@
     width: 400px;
     padding: 30px;
 }
-
+/* creates a border around all jumbotrons */
 .jumbotron {
     border: 5px solid #2E2E2E;
 }
 
+/* sets font weight and size for watchlist titles */
 h4.lead {
     font-size: 20px;
     font-weight: bold;
 }
+/* removes white space and keeps posters in watchlist on one line. hides overflow */
 .watchlistWrap {
     white-space: nowrap;
     overflow: hidden;
@@ -39,15 +43,17 @@ h4.lead {
     padding: 30px;
 }
 
+/* styles the horizontal rules in the watchlist sections */
 #hr1 {
     border: 1px solid #910000;
     width: 60%; 
 }
-
+/* sets the size of the poster in the search results div */
 #posterResult {
     width: 200px;
 }
 
+/* justifies search results to the left of the column*/
 #resultsCol {
     text-align: left;
 }
