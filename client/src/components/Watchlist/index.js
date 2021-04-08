@@ -6,7 +6,7 @@ function Watchlist(props) {
   return (
     <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
       <div className="text-center">
-        <h4 className="lead">{props.network} WatchList</h4>
+        <h4 className="lead">{props.network} Watchlist</h4>
         <hr id="hr1" />
         {props.watchlist.length ? (
           <div className="watchlistWrap table-responsive">
