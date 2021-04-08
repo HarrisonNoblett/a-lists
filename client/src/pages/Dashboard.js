@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDebounce } from 'use-debounce';
+import { useDebounce } from "use-debounce";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Watchlist from "../components/Watchlist";
@@ -86,14 +86,18 @@ const Dashboard = () => {
         } else {
             switch (info.networks[0]) {
                 case 1:
+                case 13:
                     network = "HBO";
                     view_url = "https://www.hbomax.com/";
                     break;
                 case 8:
+                case 63:
                 case 935:
                     network = "Disney";
                     view_url = "https://www.disneyplus.com/home";
                     break;
+                case 60:
+                case 173:
                 case 420:
                 case 1204:
                 case 2703:
@@ -106,6 +110,8 @@ const Dashboard = () => {
                     network = "Apple TV";
                     view_url = "https://www.apple.com/apple-tv-plus/";
                     break;
+                case 12:
+                case 21:
                 case 431:
                     network = "Hulu";
                     view_url = "https://www.hulu.com/welcome";
@@ -132,8 +138,8 @@ const Dashboard = () => {
 
     function showHide() {
         setShowResults({
-            showResults: true
-        })
+            showResults: true,
+        });
     }
 
     if (isLoading) {
@@ -167,13 +173,19 @@ const Dashboard = () => {
                             type="submit"
                             id="button-addon2"
                             onClick={handleSubmit}
-                        >Search</button>
+                        >
+                            Search
+            </button>
                     </form>
                 </div>
-                {showResults ?
+                {showResults ? (
                     <div className="row resultsContainer text-white text-center">
                         <div className="apiPoster col-md-6">
-                            <img src={poster.Poster} alt="film poster" id="posterResult"></img>
+                            <img
+                                src={poster.Poster}
+                                alt="film poster"
+                                id="posterResult"
+                            ></img>
                         </div>
                         <div className="col-md-6" id="resultsCol">
                             <h3>{info.title}</h3>
@@ -187,52 +199,65 @@ const Dashboard = () => {
                                     onClick={handleFormSave}
                                 >
                                     Save
-                                </button>
+                </button>
                             </div>
                         </div>
                     </div>
-                    : null
-                }
+                ) : null}
 
                 <Watchlist
                     network="HBO Max"
-                    watchlist={watchlist.filter(watchlist => watchlist.network === "HBO")}
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "HBO"
+                    )}
                     handleDelete={handleDelete}
                 />
 
                 <Watchlist
                     network="Disney Plus"
-                    watchlist={watchlist.filter(watchlist => watchlist.network === "Disney")}
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "Disney"
+                    )}
                     handleDelete={handleDelete}
                 />
 
                 <Watchlist
                     network="Prime Video"
-                    watchlist={watchlist.filter(watchlist => watchlist.network === "Amazon")}
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "Amazon"
+                    )}
                     handleDelete={handleDelete}
                 />
 
                 <Watchlist
                     network="Apple TV Plus"
-                    watchlist={watchlist.filter(watchlist => watchlist.network === "Apple TV")}
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "Apple TV"
+                    )}
                     handleDelete={handleDelete}
                 />
 
                 <Watchlist
                     network="Hulu"
-                    watchlist={watchlist.filter(watchlist => watchlist.network === "Hulu")}
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "Hulu"
+                    )}
                     handleDelete={handleDelete}
                 />
 
                 <Watchlist
                     network="Netflix"
-                    watchlist={watchlist.filter(watchlist => watchlist.network === "Netflix")}
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "Netflix"
+                    )}
                     handleDelete={handleDelete}
                 />
 
                 <Watchlist
                     network="Other Networks"
-                    watchlist={watchlist.filter(watchlist => watchlist.network === "Other Networks")}
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "Other Networks"
+                    )}
                     handleDelete={handleDelete}
                 />
 
