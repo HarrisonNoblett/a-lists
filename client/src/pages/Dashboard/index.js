@@ -132,6 +132,7 @@ const Dashboard = () => {
                     network = "Hulu";
                     view_url = "https://www.hulu.com/welcome";
                     break;
+                case 97:
                 case 248:
                 case 2554:
                     network = "Netflix";
@@ -142,14 +143,14 @@ const Dashboard = () => {
                     view_url = "/dashboard";
                     alert("Unknown Network, Listed in 'Other Networks' Section");
             }
-            API.saveWatchlist({
-                title: info.title,
-                poster_url: poster.Poster,
-                network: network,
-                view_url: view_url,
-                email: user.email,
-            }).then((res) => loadWatchlist());
         }
+        API.saveWatchlist({
+            title: info.title,
+            poster_url: poster.Poster,
+            network: network,
+            view_url: view_url,
+            email: user.email,
+        }).then((res) => loadWatchlist());
     }
 
     function showHide() {
