@@ -14,11 +14,11 @@ const OKEY = "&apikey=eb41033e"
 export default {
     // Gets all movies
     getTitles: function (title) {
-        const url = "https://api.watchmode.com/v1/search/?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=" + title;
+        const url = "https://api.watchmode.com/v1/search/?apiKey=cRIYVC6OLB3Q7dFrnnjap1lx3GSRiPw3Osf5OpG9&search_field=name&search_value=" + title;
         return axios.get(url)
     },
     getInfo: function (id) {
-        const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa";
+        const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=cRIYVC6OLB3Q7dFrnnjap1lx3GSRiPw3Osf5OpG9";
         return axios.get(APISEARCH)
     },
     getPoster: function (title) {
@@ -29,7 +29,7 @@ export default {
 
 // // Watchmode
 // const WKEY = process.env.WMAPIKEY;
-// const BASEURL = "https://api.watchmode.com/v1/search/?  apiKey=I9EUr6mukSN5AgebHpQOr3SnnrTiIkfnuu7zYeoa&search_field=name&search_value=";
+// const BASEURL = "https://api.watchmode.com/v1/search/?  apiKey=cRIYVC6OLB3Q7dFrnnjap1lx3GSRiPw3Osf5OpG9&search_field=name&search_value=";
 
 // // Ombd
 // const OKEY = process.env.OMBDKEY;
