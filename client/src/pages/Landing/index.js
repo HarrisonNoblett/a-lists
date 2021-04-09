@@ -8,7 +8,7 @@ const Landing = () => {
     <div>
       <style>
         {
-          "body {background-image: url(https://www.josesgarcia.com/images/adobe.jpeg); background-repeat: no-repeat; background-size: cover; background-color:#000000;}"
+          "body {background-image: url(https://www.josesgarcia.com/images/adobe.jpeg); background-repeat: no-repeat; background-size: cover; background-color:#000000; height: 45vh;}"
         }
       </style>
       <nav
@@ -29,6 +29,12 @@ const Landing = () => {
         </h2>
         {/* <button className="btn btn-light btn-lg mt-3" style={{ fontWeight: "bold" }}>Get Started</button> */}
       </div>
+      <footer className="landingFooter text-center">
+        <div className="pt-3">
+            <img src={logo} alt="logo" id="footerLogo"></img><br />
+            <p>&copy; 2021 All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
