@@ -54,8 +54,7 @@ SO I dont have to try and remember or waste time searching for it
 
 ## Mock-Up 
 
-### A LISTS (Dashboard)
-![GitHub Logo](https://media.giphy.com/media/b1qgQJBXhsJgteCCsi/giphy.gif)
+![Alt Text](client/src/img/aLists3.gif)
 
 
 ## Contributors
