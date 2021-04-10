@@ -8,7 +8,7 @@ const Landing = () => {
         <div>
             <style>
                 {
-                    "body {background-image: url(https://www.josesgarcia.com/images/adobe.jpeg); background-repeat: no-repeat; background-size: cover; }"
+                    "body {background-image: url(https://www.josesgarcia.com/images/adobe.jpeg); background-repeat: no-repeat; background-size: cover; background-color: #000000}"
                 }
             </style>
             <nav className="navbar navbar-dark fixed-top" style={{ backgroundColor: "rgba(0,0,0,0.8" }}>
@@ -22,8 +22,8 @@ const Landing = () => {
                 <h2 style={{ color: "white" }}>Get all your shows and movies under control with A-Lists</h2>
                 <button className="btn btn-light btn-lg mt-3" style={{ fontWeight: "bold" }}>Get Started</button>
             </div>
-
         </div>
+
     );
 }
 

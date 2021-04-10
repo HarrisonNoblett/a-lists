@@ -2,23 +2,22 @@ import axios from "axios";
 require("dotenv").config();
 
 // Watchmode
-// const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=";
-// const ENDURL = "&search_field=name&search_value=";
-// const WKEY = process.env.WMAPI_KEY;
+const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=";
+const ENDURL = "&search_field=name&search_value=";
+const WKEY = process.env.REACT_APP_WMAPI_KEY;
 
 // // Ombd
 const POSTERURL = "http://omdbapi.com/?t="
-const OKEY = "&apikey=eb41033e"
-// const OKEY = process.env.OMBDKEY;
+const OKEY = process.env.REACT_APP_OMBDKEY;
 
 export default {
     // Gets all movies
     getTitles: function (title) {
-        const url = "https://api.watchmode.com/v1/search/?apiKey=cRIYVC6OLB3Q7dFrnnjap1lx3GSRiPw3Osf5OpG9&search_field=name&search_value=" + title;
+        const url = BASEURL + WKEY + ENDURL + title;
         return axios.get(url)
     },
     getInfo: function (id) {
-        const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=cRIYVC6OLB3Q7dFrnnjap1lx3GSRiPw3Osf5OpG9";
+        const APISEARCH = "https://api.watchmode.com/v1/title/" + id + "/details?apiKey=" + WKEY;
         return axios.get(APISEARCH)
     },
     getPoster: function (title) {

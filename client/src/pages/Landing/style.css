@@ -3,3 +3,14 @@
     background-repeat: no-repeat;
     background-size: cover;
 } */
+
+@media screen and (max-width: 1160px) {
+
+    .header-img {
+        background: url(../../img/responsiveBkgrnd.jpeg) no-repeat;
+        background-size: cover;
+        height: 100vh;
+        margin: auto;
+    }
+    
+}
