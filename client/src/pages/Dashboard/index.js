@@ -163,6 +163,7 @@ const Dashboard = () => {
         event.preventDefault();
         console.log(film);
         setFilm("");
+        document.getElementById("search-form").reset();
     }
 
     if (isLoading) {
@@ -177,7 +178,7 @@ const Dashboard = () => {
                     <img src={logo} alt="logo" className="dashLogo"></img>
                 </div>
                 <div className="jumbotron" id="searchArea">
-                    <form className="input-group mb-3 shadow-lg">
+                    <form className="input-group mb-3 shadow-lg" id="search-form">
                         <input
                             type="text"
                             className="form-control"

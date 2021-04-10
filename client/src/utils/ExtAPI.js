@@ -21,7 +21,7 @@ export default {
         return axios.get(APISEARCH)
     },
     getPoster: function (title) {
-        return axios.get(POSTERURL + title + "&apikey=" + OKEY)
+        return axios.get(POSTERURL + title + OKEY)
     }
 }
 
