@@ -21,10 +21,9 @@ export default {
         return axios.get(APISEARCH)
     },
     getPoster: function (title) {
-        return axios.get(POSTERURL + title + OKEY)
+        return axios.get(POSTERURL + title + "&apikey=" + OKEY)
     }
 }
-
 
 // // Watchmode
 // const WKEY = process.env.WMAPIKEY;
@@ -34,9 +33,7 @@ export default {
 // const OKEY = process.env.OMBDKEY;
 // const POSTERURL = "http://omdbapi.com/?t=" &apikey=-----;
 
-
 //TO GET ID & TITLE: ---------------
-
 // network 1 = HBO;
 // network 8 = Disney;
 // network 1204, 2703, 2328 = Amazon;
