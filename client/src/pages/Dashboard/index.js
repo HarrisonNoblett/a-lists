@@ -17,6 +17,7 @@ const Dashboard = () => {
     const [info, setInfo] = useState({});
     const [poster, setPoster] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    // const [clearInput, setClearInput] = useState("");
 
     // Set useAuth0 hook
     const { user, isLoading } = useAuth0();
@@ -65,7 +66,6 @@ const Dashboard = () => {
                 .then((data) => setPoster(data.data))
                 .catch((err) => console.log(err));
         });
-
     }
 
     function handleDelete(id) {
@@ -159,6 +159,12 @@ const Dashboard = () => {
         });
     }
 
+    function handleclearInput(event) {
+        event.preventDefault();
+        console.log(film);
+        setFilm("");
+    }
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -184,10 +190,10 @@ const Dashboard = () => {
                             className="btn btn-outline-secondary"
                             type="submit"
                             id="button-addon2"
-                            onClick={handleSubmit}
+                            onClick={handleclearInput}
                         >
-                            Search
-            </button>
+                            Clear
+                        </button>
                     </form>
                 </div>
                 {showResults ? (
@@ -211,7 +217,7 @@ const Dashboard = () => {
                                     onClick={handleFormSave}
                                 >
                                     Save
-                </button>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -226,25 +232,9 @@ const Dashboard = () => {
                 />
 
                 <Watchlist
-                    network="Disney Plus"
+                    network="Netflix"
                     watchlist={watchlist.filter(
-                        (watchlist) => watchlist.network === "Disney"
-                    )}
-                    handleDelete={handleDelete}
-                />
-
-                <Watchlist
-                    network="Prime Video"
-                    watchlist={watchlist.filter(
-                        (watchlist) => watchlist.network === "Amazon"
-                    )}
-                    handleDelete={handleDelete}
-                />
-
-                <Watchlist
-                    network="Apple TV Plus"
-                    watchlist={watchlist.filter(
-                        (watchlist) => watchlist.network === "Apple TV"
+                        (watchlist) => watchlist.network === "Netflix"
                     )}
                     handleDelete={handleDelete}
                 />
@@ -258,9 +248,25 @@ const Dashboard = () => {
                 />
 
                 <Watchlist
-                    network="Netflix"
+                    network="Prime Video"
                     watchlist={watchlist.filter(
-                        (watchlist) => watchlist.network === "Netflix"
+                        (watchlist) => watchlist.network === "Amazon"
+                    )}
+                    handleDelete={handleDelete}
+                />
+
+                <Watchlist
+                    network="Disney Plus"
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "Disney"
+                    )}
+                    handleDelete={handleDelete}
+                />
+
+                <Watchlist
+                    network="Apple TV Plus"
+                    watchlist={watchlist.filter(
+                        (watchlist) => watchlist.network === "Apple TV"
                     )}
                     handleDelete={handleDelete}
                 />

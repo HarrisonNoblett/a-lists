@@ -1,5 +1,5 @@
 import axios from "axios";
-// require("dotenv").config();
+require("dotenv").config();
 
 // Watchmode
 const BASEURL = "https://api.watchmode.com/v1/search/?apiKey=";
@@ -8,13 +8,11 @@ const WKEY = process.env.REACT_APP_WMAPI_KEY;
 
 // // Ombd
 const POSTERURL = "http://omdbapi.com/?t="
-// const OKEY = "&apikey=eb41033e"
 const OKEY = process.env.REACT_APP_OMBDKEY;
 
 export default {
     // Gets all movies
     getTitles: function (title) {
-        // console.log(process.env.REACT_APP_WMAPI_KEY)
         const url = BASEURL + WKEY + ENDURL + title;
         return axios.get(url)
     },
@@ -27,7 +25,6 @@ export default {
     }
 }
 
-
 // // Watchmode
 // const WKEY = process.env.WMAPIKEY;
 // const BASEURL = "https://api.watchmode.com/v1/search/?  apiKey=-----&search_field=name&search_value=";
@@ -36,9 +33,7 @@ export default {
 // const OKEY = process.env.OMBDKEY;
 // const POSTERURL = "http://omdbapi.com/?t=" &apikey=-----;
 
-
 //TO GET ID & TITLE: ---------------
-
 // network 1 = HBO;
 // network 8 = Disney;
 // network 1204, 2703, 2328 = Amazon;
