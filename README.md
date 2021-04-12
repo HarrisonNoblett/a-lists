@@ -26,6 +26,7 @@ SO I dont have to try and remember or waste time searching for it
 ```
 ## Elevator Pitch
 ```
+Tired of not remembering what streaming service has that one show or movie you were watching last night? With so many streaming service accounts you don't need to remember or keep track of any current shows with 'A Lists'. Search, save and know what streaming service you are using to watch a show, at the reach of your fingertips.
 
 ```
 
@@ -64,7 +65,7 @@ SO I dont have to try and remember or waste time searching for it
 * [Janneth Alvarado Verduzco](https://github.com/jannverduzco) - janneth_verduzco@live.com
 
 ## Live Link (Heroku)
-
+https://a-lists.herokuapp.com/
 
 ## Repository Link
 https://github.com/HarrisonNoblett/a-lists
