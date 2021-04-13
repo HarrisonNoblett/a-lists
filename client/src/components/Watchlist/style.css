@@ -26,7 +26,7 @@ h4.lead {
 .watchlistWrap {
     white-space: nowrap;
     display: block;
-    /* overflow-x: auto; */
+    overflow-x: auto;
     width: 100%;
 }
 
