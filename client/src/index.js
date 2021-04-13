@@ -8,7 +8,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 const providerConfig = {
     domain: "a-lists.us.auth0.com",
     clientId: "Fh6gxt8ZVoGSYdBTzbLwMbc2NgsnNZPd",
-    redirectUri: "https://a-lists.herokuapp.com/dashboard"
+    redirectUri: "https://a-lists.herokuapp.com/dashboard",
 };
 
 ReactDOM.render(
