@@ -25,7 +25,8 @@ const Dashboard = () => {
   useEffect(() => {
     loadWatchlist();
   }, []);
-
+  
+  // Debounce feuture
   useEffect(() => {
     console.log(debouncedFilm);
     handleSubmit();
