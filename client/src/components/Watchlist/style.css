@@ -23,12 +23,12 @@ h4.lead {
     font-weight: bold;
 }
 /* removes white space and keeps posters in watchlist on one line. hides overflow */
-/* .watchlistWrap {
+.watchlistWrap {
     white-space: nowrap;
     display: block;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     width: 100%;
-} */
+}
 
 #button-addon2 {
     background-color: black;
