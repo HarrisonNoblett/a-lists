@@ -26,6 +26,9 @@ SO I dont have to try and remember or waste time searching for it
 ```
 ## Elevator Pitch
 ```
+ Tired of not remembering what streaming service has that one show or movie you were watching last night? 
+Introducing A-LISTS - With so many streaming service accounts you don't need to remember or keep track of any current shows any more!
+With ‘A Lists’, search, save and know what streaming service you are using to watch a show, at the reach of your fingertips.
 
 ```
 
