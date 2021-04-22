@@ -6,11 +6,15 @@ import "./style.css"
 function Watchlist(props) {
   return (
     <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
-      <div className="text-center">
+      <div className="text-center">s
         <h4 className="lead">{props.network} Watchlist</h4>
         <hr id="hr1" />
         {props.watchlist.length ? (
-          <div className="watchlistWrap table-responsive">
+           <div className="watchlistWrap table-responsive"><style>
+           {
+             "watchlistWrap {white-space: nowrap; display: block; overflow-x: auto; width: 100%;}"
+           }
+         </style>
             {props.watchlist.map((watchlist) => (
               <button
                 type="button"
