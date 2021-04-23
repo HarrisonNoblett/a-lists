@@ -6,7 +6,7 @@ import "./style.css"
 function Watchlist(props) {
   return (
     <div className="jumbotron jumbotron-fluid" id="watchlistDiv">
-      <div className="text-center">s
+      <div className="text-center">
         <h4 className="lead">{props.network} Watchlist</h4>
         <hr id="hr1" />
         {props.watchlist.length ? (
