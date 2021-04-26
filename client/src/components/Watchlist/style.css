@@ -24,10 +24,10 @@ h4.lead {
 }
 /* removes white space and keeps posters in watchlist on one line. hides overflow */
 .table-responsive{
-    /* white-space: nowrap; */
+    white-space: nowrap;
     display: block;
-    /* overflow-x:auto;
-    width: 100%; */
+    overflow-x:auto;
+    width: 100%;
 }
 
 #button-addon2 {
