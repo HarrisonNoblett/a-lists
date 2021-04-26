@@ -1,6 +1,7 @@
 import React from "react";
 import DeleteBtn from "../DeleteBtn";
-import "./style.css"
+import "./style.css";
+import HorizontalScroll from "react-scroll-horizontal";
 
 //deploy
 function Watchlist(props) {
@@ -10,11 +11,12 @@ function Watchlist(props) {
         <h4 className="lead">{props.network} Watchlist</h4>
         <hr id="hr1" />
         {props.watchlist.length ? (
-           <div className="watchlistWrap table-responsive"><style>
+           <HorizontalScroll className="watchlistWrap">
+             {/* <style>
            {
-             "watchlistWrap {white-space: nowrap; display: block; overflow-x: auto; width: 100%;}"
+             "watchlistWrap {white-space: nowrap; display: block; display: flex;flex-wrap: nowrap; overflow: auto; width: 100%;}"
            }
-         </style>
+         </style> */}
             {props.watchlist.map((watchlist) => (
               <button
                 type="button"
@@ -32,7 +34,7 @@ function Watchlist(props) {
                 <DeleteBtn onClick={() => props.handleDelete(watchlist._id)} />
               </button>
             ))}
-          </div>
+          </HorizontalScroll>
         ) : (
           <h5>No Results to Display</h5>
         )}
