@@ -8,7 +8,7 @@ const Landing = () => {
     <div>
       <style>
         {
-          "body {background-image: url(https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1867&q=80); background-repeat: no-repeat; background-size: cover; background-color:#000000; height: 45vh;}"
+          "body {background-image: url(https://ak.picdn.net/shutterstock/videos/1017949519/thumb/1.jpg); background-repeat: no-repeat; background-size: cover; background-color:#000000; height: 45vh;}"
         }
       </style>
       <nav
