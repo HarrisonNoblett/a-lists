@@ -8,6 +8,11 @@ import ExtAPI from "../../utils/ExtAPI";
 import logo from "../../img/logocopy.png";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 import "./style.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// Configuring toastify package to run on page
+toast.configure();
 
 const Dashboard = () => {
   // Setting initial state
@@ -25,7 +30,7 @@ const Dashboard = () => {
   useEffect(() => {
     loadWatchlist();
   }, []);
-  
+
   // Debounce feuture
   useEffect(() => {
     console.log(debouncedFilm);
@@ -72,7 +77,12 @@ const Dashboard = () => {
 
   function handleDelete(id) {
     API.deleteWatchlist(id)
-      .then((data) => loadWatchlist())
+      .then((data) => {
+        loadWatchlist();
+        toast.error("Watchlist Item Deleted!", {
+          autoClose: 3000,
+        });
+      })
       .catch((err) => console.log(err));
   }
 
@@ -85,7 +95,7 @@ const Dashboard = () => {
     if (!info.networks) {
       network = "Other Networks";
       view_url = "/dashboard";
-      alert("Unknown Network, Listed in 'Other Networks' Section");
+      toast.success("Unknown Network, Listed in 'Other Networks' Section");
     } else {
       switch (info.networks[0]) {
         case 1:
@@ -143,7 +153,7 @@ const Dashboard = () => {
         default:
           network = "Other Networks";
           view_url = "/dashboard";
-          alert("Unknown Network, Listed in 'Other Networks' Section");
+        // alert("Unknown Network, Listed in 'Other Networks' Section");
       }
     }
     API.saveWatchlist({
@@ -154,7 +164,10 @@ const Dashboard = () => {
       email: user.email,
     }).then((res) => {
       loadWatchlist();
-      setShowResults(false)
+      setShowResults(false);
+      toast.info(`Item Saved to ${network} Watchlist!`, {
+        autoClose: 3000,
+      });
     });
   }
 
