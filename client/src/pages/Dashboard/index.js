@@ -8,7 +8,7 @@ import ExtAPI from "../../utils/ExtAPI";
 import logo from "../../img/logocopy.png";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 import "./style.css";
-import { toast } from "react-toastify";
+import { cssTransition, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Configuring toastify package to run on page
@@ -79,8 +79,9 @@ const Dashboard = () => {
     API.deleteWatchlist(id)
       .then((data) => {
         loadWatchlist();
-        toast.error("Watchlist Item Deleted!", {
+        toast.dark("Watchlist Item Deleted!", {
           autoClose: 3000,
+          progressClassName: "progress",
         });
       })
       .catch((err) => console.log(err));
@@ -95,7 +96,6 @@ const Dashboard = () => {
     if (!info.networks) {
       network = "Other Networks";
       view_url = "/dashboard";
-      toast.success("Unknown Network, Listed in 'Other Networks' Section");
     } else {
       switch (info.networks[0]) {
         case 1:
@@ -153,7 +153,6 @@ const Dashboard = () => {
         default:
           network = "Other Networks";
           view_url = "/dashboard";
-        // alert("Unknown Network, Listed in 'Other Networks' Section");
       }
     }
     API.saveWatchlist({
@@ -165,8 +164,9 @@ const Dashboard = () => {
     }).then((res) => {
       loadWatchlist();
       setShowResults(false);
-      toast.info(`Item Saved to ${network} Watchlist!`, {
+      toast.dark(`Item Saved to ${network} Watchlist!`, {
         autoClose: 3000,
+        progressClassName: "progress",
       });
     });
   }
@@ -220,7 +220,7 @@ const Dashboard = () => {
             </div>
             <div className="col-md-6" id="resultsCol">
               <h3>{info.title}</h3>
-              <h5>Film Type: {info.type.replace(/(^|_)./g, s => s.slice(-1).toUpperCase())}</h5>
+              <h5>Film Type: {info.type.replace(/_/g, " ").toUpperCase()}</h5>
               <h5>Rating: {info.rating}</h5>
               <p>{info.plot}</p>
               <div className="saveButton">
