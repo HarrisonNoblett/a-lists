@@ -237,33 +237,16 @@ const Dashboard = () => {
         ) : null}
 
         <Watchlist
-          network="HBO Max"
-          watchlist={watchlist.filter(
-            (watchlist) => watchlist.network === "HBO"
-          )}
-          handleDelete={handleDelete}
-        />
-
-        <Watchlist
           network="Netflix"
           watchlist={watchlist.filter(
             (watchlist) => watchlist.network === "Netflix"
           )}
           handleDelete={handleDelete}
         />
-
         <Watchlist
-          network="Hulu"
+          network="HBO Max"
           watchlist={watchlist.filter(
-            (watchlist) => watchlist.network === "Hulu"
-          )}
-          handleDelete={handleDelete}
-        />
-
-        <Watchlist
-          network="Prime Video"
-          watchlist={watchlist.filter(
-            (watchlist) => watchlist.network === "Amazon"
+            (watchlist) => watchlist.network === "HBO"
           )}
           handleDelete={handleDelete}
         />
@@ -275,7 +258,20 @@ const Dashboard = () => {
           )}
           handleDelete={handleDelete}
         />
-
+        <Watchlist
+          network="Prime Video"
+          watchlist={watchlist.filter(
+            (watchlist) => watchlist.network === "Amazon"
+          )}
+          handleDelete={handleDelete}
+        />
+        <Watchlist
+          network="Hulu"
+          watchlist={watchlist.filter(
+            (watchlist) => watchlist.network === "Hulu"
+          )}
+          handleDelete={handleDelete}
+        />
         <Watchlist
           network="Apple TV Plus"
           watchlist={watchlist.filter(
@@ -283,7 +279,6 @@ const Dashboard = () => {
           )}
           handleDelete={handleDelete}
         />
-
         <Watchlist
           network="Other Networks"
           watchlist={watchlist.filter(

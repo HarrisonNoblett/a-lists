@@ -10,11 +10,6 @@ function Watchlist(props) {
         <hr id="hr1" />
         {props.watchlist.length ? (
            <div className="table-responsive">
-             {/* { <style>
-           {
-             "watchlistWrap {white-space: nowrap; display: block; display: flex; flex-wrap: nowrap; width: 100%; overflow-x:auto;}"
-           }
-         </style> } */}
             {props.watchlist.map((watchlist) => (
               <button
                 type="button"

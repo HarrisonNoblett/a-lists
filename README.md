@@ -55,6 +55,7 @@ Search, save and know what streaming service you are using to watch a show, at t
   - use-debounce
   - win-node-env
   - bootstrap
+  - react-toastify
 - Heroku (Deployment)
 - ESLint (Testing code)
 
