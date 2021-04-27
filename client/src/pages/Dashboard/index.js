@@ -220,7 +220,7 @@ const Dashboard = () => {
             </div>
             <div className="col-md-6" id="resultsCol">
               <h3>{info.title}</h3>
-              <h5>Film Type: {info.type}</h5>
+              <h5>Film Type: {info.type.replace(/(^|_)./g, s => s.slice(-1).toUpperCase())}</h5>
               <h5>Rating: {info.rating}</h5>
               <p>{info.plot}</p>
               <div className="saveButton">
