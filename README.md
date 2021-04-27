@@ -61,7 +61,7 @@ Search, save and know what streaming service you are using to watch a show, at t
 
 ## Mock-Up
 
-![Alt Text](client/src/img/aLists3.gif)
+![Alt Text](client/src/img/A-Lists.gif)
 
 ## Contributors
 
