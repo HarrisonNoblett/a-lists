@@ -95,7 +95,6 @@ const watchlistSeed = [
 ];
 
 // Inserting Watchlist Seed
-
 db.Watchlist.remove({})
   .then(() => db.Watchlist.collection.insertMany(watchlistSeed))
   .then(data => {

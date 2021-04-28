@@ -8,7 +8,7 @@ import ExtAPI from "../../utils/ExtAPI";
 import logo from "../../img/logocopy.png";
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 import "./style.css";
-import { cssTransition, toast } from "react-toastify";
+import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Configuring toastify package to run on page
